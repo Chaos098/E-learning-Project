@@ -342,7 +342,7 @@ docs/
 | R3 | Tích hợp Stripe (webhook, môi trường test) gặp khó | Trễ Sprint 2 | Có nút thanh toán giả lập dự phòng |
 | R4 | Sơ đồ CSDL đổi giữa chừng | Lỗi dữ liệu, phải làm lại | Mọi thay đổi đi qua migration; cập nhật `So_do_CSDL.drawio` cùng lúc |
 | R5 | Code do AI sinh ra khó kiểm soát | Lỗi ẩn | Chia việc nhỏ; Tester và E2E chạy trước khi merge; thành viên nhóm review |
-| R6 | Giả định G-1 → G-5 (requirement.md mục 9.3) bị PO đổi | Phải sửa story đã làm | PO xác nhận trước Sprint 2 (G-4, G-5) và Sprint 4 (G-1 → G-3) |
+| R6 | PO đổi yêu cầu đã chốt (Q-01 → Q-38, G-1 → G-5) giữa chừng | Phải sửa story đã làm, trễ hạn 01/12 | Thay đổi mới chỉ nhận vào Sprint 5 trở đi, trừ lỗi nghiêm trọng |
 | R7 | File chưa commit bị mất | Mất công sức | Commit và push sau mỗi phiên làm việc |
 
 ---

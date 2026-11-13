@@ -2,7 +2,7 @@
 
 | Mục | Nội dung |
 |---|---|
-| Phiên bản | **v1.1 — đã chốt toàn bộ câu hỏi Q-01 → Q-38**; còn 5 giả định nhỏ chờ xác nhận ([mục 9.3](#93-giả-định-chờ-xác-nhận)) |
+| Phiên bản | **v1.1 — đã chốt toàn bộ câu hỏi Q-01 → Q-38**; năm giả định G-1 → G-5 cũng đã được xác nhận ([mục 9.3](#93-giả-định)) |
 | Ngày | 13/11/2026 |
 | Sơ đồ CSDL | [`So_do_CSDL.drawio`](../So_do_CSDL.drawio) — ERD v1.1, 27 bảng, ký hiệu chân gà |
 | Kế hoạch thực hiện | [PLAN.md](../PLAN.md) |
@@ -28,7 +28,7 @@
 > **Cách đọc tài liệu**
 > - Nội dung không đánh dấu: lấy từ sơ đồ hoặc từ câu trả lời của bạn.
 > - **[Đề xuất]**: phần mình bổ sung để hệ thống chạy được.
-> - **[Giả định G-x]**: mình tự suy ra từ câu trả lời của bạn, chờ bạn xác nhận ở [mục 9.3](#93-giả-định-chờ-xác-nhận).
+> - **G-x**: giả định mình suy ra từ câu trả lời của bạn, đã được bạn xác nhận ([mục 9.3](#93-giả-định)).
 
 ## Mục lục
 
@@ -211,7 +211,7 @@ Mức ưu tiên theo **MoSCoW**: **Must** (bắt buộc), **Should** (nên có),
 | US-13 | Là **giảng viên**, tôi muốn xem các lớp được phân công và học viên trong lớp | Must | Danh sách lớp kèm môn học, thời gian, sĩ số; danh sách học viên kèm trạng thái đăng ký và thanh toán |
 | US-14 | Là **giảng viên**, tôi muốn đề xuất không dạy một lớp được phân | Should | Nhập lý do (bắt buộc); tạo `CLASS_DECLINE_REQUEST` trạng thái `PENDING`; chỉ gửi được khi lớp chưa kết thúc; mỗi lớp chỉ có 1 đề xuất đang chờ |
 | US-15 | Là **Admin**, tôi muốn duyệt hoặc từ chối đề xuất không dạy | Should | Ghi `admin_id`, `reviewed_at`, trạng thái `APPROVED` / `REJECTED`; nếu duyệt thì Admin phải chọn giảng viên khác cho lớp; nếu từ chối thì giảng viên tiếp tục dạy; giảng viên thấy kết quả |
-| US-16 | Là **Admin**, tôi muốn lớp được mở khi đủ sĩ số tối thiểu, bị huỷ và hoàn tiền khi không đủ, và kết thúc lớp | Must | Tới `start_date`, lớp có đủ `min_students` học viên đã cọc hoặc trả đủ thì chuyển `ONGOING`; chưa đủ thì lớp chuyển `CANCELLED` và mỗi học viên được hoàn đúng số tiền đã trả cho lớp đó (cọc hoặc đủ) bằng giao dịch `REFUND` **[Giả định G-4, G-5]**; hết `end_date` thì chuyển `FINISHED`, học viên chỉ xem lại |
+| US-16 | Là **Admin**, tôi muốn lớp được mở khi đủ sĩ số tối thiểu, bị huỷ và hoàn tiền khi không đủ, và kết thúc lớp | Must | Tới `start_date`, lớp có đủ `min_students` học viên đã cọc hoặc trả đủ thì chuyển `ONGOING`; chưa đủ thì lớp chuyển `CANCELLED` và mỗi học viên được hoàn đúng số tiền đã trả cho lớp đó (cọc hoặc đủ) bằng giao dịch `REFUND`; hết `end_date` thì chuyển `FINISHED`, học viên chỉ xem lại |
 
 ### E4 — Đăng ký & thanh toán
 *Bảng: `ENROLLMENT`, `STUDENT COURSES DETAIL`, `STUDY`, `PAYMENT`*
@@ -276,7 +276,7 @@ Mức ưu tiên theo **MoSCoW**: **Must** (bắt buộc), **Should** (nên có),
 | US-42 | Là **học viên**, tôi muốn làm quiz | Must | Chỉ khi đã được mở quyền vào lớp và quiz đã publish; quiz trắc nghiệm làm tối đa **2 lần** (`attempt_no` ≤ `max_attempts`), mỗi lần trong `time_limit`; quiz nộp file nộp **1 lần**, trước `due_at`, file theo NFR-05 |
 | US-43 | Là **hệ thống / giảng viên**, tôi muốn chấm quiz | Must | Quiz trắc nghiệm: hệ thống tự chấm khi nộp, `score` = tổng `point_earned`; quiz nộp file: giảng viên của lớp nhập `score` và `teacher_comment`, bài chuyển `GRADED` |
 | US-44 | Là **học viên**, tôi muốn xem điểm quiz | Must | Điểm quiz trắc nghiệm hiện ngay sau khi nộp, điểm của quiz là điểm **lần làm sau cùng**; điểm quiz nộp file hiện sau khi giảng viên chấm; điểm quá trình (`middle_exam_point`) = trung bình điểm quiz các chương của lớp |
-| US-50 | Là **giảng viên / Admin**, tôi muốn xử lý sai sót của quiz đã khoá | Should | Khi học viên báo câu hỏi hoặc đáp án của quiz có sai sót **[Giả định G-1]**, giảng viên gửi báo sai sót cho Admin (`QUIZ_FEEDBACK`, trạng thái `PENDING`); Admin điều chỉnh điểm các bài làm bị ảnh hưởng (ghi `adjust_note`), **không sửa nội dung quiz**; báo sai sót chuyển `RESOLVED` hoặc `REJECTED`, giảng viên thấy kết quả; điểm quá trình được tính lại |
+| US-50 | Là **giảng viên / Admin**, tôi muốn xử lý sai sót của quiz đã khoá | Should | Khi học viên báo câu hỏi hoặc đáp án của quiz có sai sót, giảng viên gửi báo sai sót cho Admin (`QUIZ_FEEDBACK`, trạng thái `PENDING`); Admin điều chỉnh điểm các bài làm bị ảnh hưởng (ghi `adjust_note`), **không sửa nội dung quiz**; báo sai sót chuyển `RESOLVED` hoặc `REJECTED`, giảng viên thấy kết quả; điểm quá trình được tính lại |
 
 ### E10 — Lương & thống kê
 *Bảng: `SALARY`, `TEACHER`*
@@ -326,7 +326,7 @@ Mức ưu tiên theo **MoSCoW**: **Must** (bắt buộc), **Should** (nên có),
 | BR-20 | Giảng viên chỉ thao tác trên lớp mình được phân công và câu hỏi của môn mình dạy | Bảo mật |
 | BR-21 | Mỗi học viên chỉ có một đăng ký còn hiệu lực cho mỗi lớp (`UQ(student_id, class_id)`) | Tránh đăng ký, thanh toán trùng |
 | BR-22 | Học viên còn đơn đăng ký chưa trả đủ học phí thì không được tạo đơn đăng ký mới | Theo Q-27 |
-| BR-23 | Quiz đã có học viên vào làm thì khoá hẳn: không sửa, không nhân bản; sai sót được xử lý bằng cách Admin điều chỉnh điểm (US-50). Câu hỏi của ngân hàng đề thi đã nằm trong bài làm cũng không sửa được nội dung và đáp án, chỉ ẩn được **[Giả định G-2]** | Theo Q-29; bài làm cũ không bị đổi nghĩa |
+| BR-23 | Quiz đã có học viên vào làm thì khoá hẳn: không sửa, không nhân bản; sai sót được xử lý bằng cách Admin điều chỉnh điểm (US-50). Câu hỏi của ngân hàng đề thi đã nằm trong bài làm cũng không sửa được nội dung và đáp án, chỉ ẩn được | Theo Q-29; bài làm cũ không bị đổi nghĩa |
 | BR-24 | Đáp án đúng không được gửi về trình duyệt khi học viên đang làm bài | Chống xem đáp án bằng công cụ trình duyệt |
 | BR-25 | Mọi mốc thời gian (mở đề, nộp bài, hết giờ, thanh toán) lấy theo giờ server | Chống chỉnh giờ máy |
 
@@ -512,17 +512,17 @@ Số bảng vẫn là 27 (bỏ 1, thêm 1).
 | Q-37 | Câu trắc nghiệm **nhiều đáp án** chấm thế nào? | Phải chọn đủ mọi đáp án đúng và không chọn sai mới được điểm của câu | Bỏ đi câu trắc nghiệm **nhiều đáp án** chỉ câu trắc nghiệm 1 đáp án đúng, thêm những câu hỏi đánh giá các câu trả lời đúng / sai (Ví dụ Thủ đô của Việt Nam là ? (a) Thanh Hoá -> sai (b) Hà Nội -> đúng (c) Đà Nẵng -> sai) giống như lựa chọn True / False trong bài thi IELTS | **Làm rõ 13/11:** bỏ cả câu nhiều đáp án lẫn câu đúng / sai; chỉ còn trắc nghiệm 1 đáp án và tự luận. → US-26, US-27, US-31, US-34, US-35; BR-11; bỏ `ANSWER_CHOICE` |
 | Q-38 | Mỗi **quiz** được làm mấy lần? Học viên xem điểm quiz khi nào? | Làm 1 lần; điểm trắc nghiệm hiện ngay, điểm tự luận / file hiện sau khi giảng viên chấm | Có thể có nhiều dạng QUIZ, dạng sinh viên trả lời trắc nghiệm (với mục đích hệ thống lại lý thuyết cho học viên) thì có thể làm tối đa 2 lần, dạng học viên nộp file làm theo đề giảng viên đưa ra thì chỉ nộp được 1 lần và sẽ có thời hạn nộp cho học viên | Quiz trắc nghiệm làm tối đa 2 lần, quiz nộp file 1 lần có hạn nộp. **Làm rõ 13/11:** lấy điểm lần làm sau cùng. → US-41 → US-44; BR-17 |
 
-### 9.3 Giả định chờ xác nhận
+### 9.3 Giả định
 
-Các điểm dưới đây mình tự suy ra để hệ thống chạy được. Bạn chỉ cần trả lời nếu muốn đổi.
+Các điểm dưới đây mình tự suy ra để hệ thống chạy được. PO đã xác nhận cả năm giả định ngày 13/11.
 
-| Mã | Giả định | Dùng ở |
-|---|---|---|
-| G-1 | Học viên báo sai sót quiz cho giảng viên **ngoài hệ thống** (trên lớp hoặc kênh liên lạc riêng); chỉ bước giảng viên báo cho Admin nằm trong hệ thống | US-50 |
-| G-2 | Nguyên tắc "đã có người làm thì khoá" của quiz cũng áp dụng cho **ngân hàng câu hỏi đề thi**: câu đã nằm trong bài làm thì không sửa được, chỉ ẩn được | BR-23 |
-| G-3 | Quiz **không còn câu tự luận nhập chữ**: hoặc là bộ câu trắc nghiệm, hoặc là nộp file | US-41, US-42 |
-| G-4 | Đơn đăng ký gồm nhiều lớp mà chỉ một lớp bị huỷ thì **chỉ hoàn phần tiền của lớp bị huỷ**, các lớp khác giữ nguyên | US-16 |
-| G-5 | Sĩ số tối thiểu được **chốt một lần tại ngày khai giảng**; hệ thống tự kiểm tra và tự huỷ lớp, Admin không cần bấm | US-16 |
+| Mã | Giả định | Dùng ở | Trạng thái |
+|---|---|---|---|
+| G-1 | Học viên báo sai sót quiz cho giảng viên **ngoài hệ thống** (trên lớp hoặc kênh liên lạc riêng); chỉ bước giảng viên báo cho Admin nằm trong hệ thống | US-50 | ✅ Đã xác nhận: việc học viên báo cho giảng viên không nhất thiết là một hành động trên hệ thống |
+| G-2 | Nguyên tắc "đã có người làm thì khoá" của quiz cũng áp dụng cho **ngân hàng câu hỏi đề thi**: câu đã nằm trong bài làm thì không sửa được, chỉ ẩn được | BR-23 | ✅ Đã xác nhận |
+| G-3 | Quiz **không còn câu tự luận nhập chữ**: hoặc là bộ câu trắc nghiệm, hoặc là nộp file | US-41, US-42 | ✅ Đã xác nhận |
+| G-4 | Đơn đăng ký gồm nhiều lớp mà chỉ một lớp bị huỷ thì **chỉ hoàn phần tiền của lớp bị huỷ**, các lớp khác giữ nguyên | US-16 | ✅ Đã xác nhận |
+| G-5 | Sĩ số tối thiểu được **chốt một lần tại ngày khai giảng**; hệ thống tự kiểm tra và tự huỷ lớp, Admin không cần bấm | US-16 | ✅ Đã xác nhận |
 
 ---
 
@@ -555,3 +555,4 @@ Các điểm dưới đây mình tự suy ra để hệ thống chạy được.
 | v1.0 | 02/11/2026 | Claude Code | Chốt theo câu trả lời: ERD v1.0 (`So_do_CSDL.drawio`, 27 bảng), 49 user story, 25 quy tắc nghiệp vụ, 9 yêu cầu phi chức năng; 12 câu hỏi còn mở Q-27 → Q-38 với phương án mặc định |
 | — | 13/11/2026 | Chủ dự án | Trả lời Q-27 → Q-38 và làm rõ Q-27, Q-29, Q-37, Q-38 |
 | v1.1 | 13/11/2026 | Claude Code | Chốt toàn bộ câu hỏi: ERD v1.1 (bỏ `ANSWER_CHOICE`, thêm `QUIZ_FEEDBACK`, mở rộng cụm QUIZ), 50 user story, quiz 2 dạng, học phí cọc / đủ, huỷ lớp hoàn tiền, hạn nộp 01/12/2026; 5 giả định G-1 → G-5 |
+| — | 13/11/2026 | Chủ dự án | Xác nhận cả năm giả định G-1 → G-5 |

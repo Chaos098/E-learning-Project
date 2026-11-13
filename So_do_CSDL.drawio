@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
   <diagram id="erd-v1" name="ERD v1.1">
-    <mxGraphModel dx="1261" dy="1376" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1660" dy="1065" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -436,6 +436,36 @@
         <mxCell id="QUESTIONS" value="QUESTIONS" style="swimlane;html=1;rounded=1;startSize=34;horizontal=1;fontStyle=1;fontSize=15;strokeWidth=1.4;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry y="1666" width="400" height="216" as="geometry" />
         </mxCell>
+        <mxCell id="QUESTIONS-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUESTIONS" vertex="1">
+          <mxGeometry y="34" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUESTIONS-r0" value="question_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1">
+          <mxGeometry x="56" y="34" width="344" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUESTIONS-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUESTIONS" vertex="1">
+          <mxGeometry y="60" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUESTIONS-r1" value="course_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1">
+          <mxGeometry x="56" y="60" width="344" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUESTIONS-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUESTIONS" vertex="1">
+          <mxGeometry y="86" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUESTIONS-r2" value="teacher_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1">
+          <mxGeometry x="56" y="86" width="344" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUESTIONS-r3" value="question_type (1 đáp án | tự luận)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1">
+          <mxGeometry y="112" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUESTIONS-r4" value="description" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1">
+          <mxGeometry y="138" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUESTIONS-r5" value="status" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1">
+          <mxGeometry y="164" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUESTIONS-r6" value="date_question_created" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1">
+          <mxGeometry y="190" width="400" height="26" as="geometry" />
+        </mxCell>
         <mxCell id="QOPT" value="QUESTION_OPTION" style="swimlane;html=1;rounded=1;startSize=34;horizontal=1;fontStyle=1;fontSize=15;strokeWidth=1.4;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="80" y="2452" width="240" height="164" as="geometry" />
         </mxCell>
@@ -586,11 +616,119 @@
         <mxCell id="ANSWER_DETAIL" value="ANSWER_DETAIL (trả lời 1 câu)" style="swimlane;html=1;rounded=1;startSize=34;horizontal=1;fontStyle=1;fontSize=15;strokeWidth=1.4;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="399" y="2426" width="310" height="242" as="geometry" />
         </mxCell>
+        <mxCell id="ANSWER_DETAIL-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry y="34" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ANSWER_DETAIL-r0" value="answer_detail_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry x="56" y="34" width="254" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ANSWER_DETAIL-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry y="60" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ANSWER_DETAIL-r1" value="answer_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry x="56" y="60" width="254" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ANSWER_DETAIL-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry y="86" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ANSWER_DETAIL-r2" value="question_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry x="56" y="86" width="254" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ANSWER_DETAIL-k3" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry y="112" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ANSWER_DETAIL-r3" value="chosen_option_id (trắc nghiệm)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry x="56" y="112" width="254" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ANSWER_DETAIL-r4" value="answer_text (tự luận)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry y="138" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ANSWER_DETAIL-r5" value="is_correct" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry y="164" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ANSWER_DETAIL-r6" value="point_earned" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry y="190" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ANSWER_DETAIL-r7" value="teacher_comment" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1">
+          <mxGeometry y="216" width="310" height="26" as="geometry" />
+        </mxCell>
         <mxCell id="QUIZ" value="QUIZ" style="swimlane;html=1;rounded=1;startSize=34;horizontal=1;fontStyle=1;fontSize=15;strokeWidth=1.4;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="2229" y="1620" width="260" height="398" as="geometry" />
         </mxCell>
+        <mxCell id="QUIZ-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ" vertex="1">
+          <mxGeometry y="34" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r0" value="quiz_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry x="56" y="34" width="204" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ" vertex="1">
+          <mxGeometry y="60" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r1" value="class_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry x="56" y="60" width="204" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ" vertex="1">
+          <mxGeometry y="86" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r2" value="section_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry x="56" y="86" width="204" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r3" value="title" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry y="112" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r4" value="quiz_type (trắc nghiệm | nộp file)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry y="138" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r5" value="description" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry y="164" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r6" value="attachment_url (đề dạng file)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry y="190" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r7" value="time_limit (phút)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry y="216" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r8" value="due_at (hạn nộp)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry y="242" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r9" value="max_attempts" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry y="268" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r10" value="status" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry y="294" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r11" value="date_created" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry y="320" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r12" value="published_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry y="346" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ-r13" value="UQ(class_id, section_id)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1">
+          <mxGeometry y="372" width="260" height="26" as="geometry" />
+        </mxCell>
         <mxCell id="QUIZ_QUESTION" value="QUIZ_QUESTION" style="swimlane;html=1;rounded=1;startSize=34;horizontal=1;fontStyle=1;fontSize=15;strokeWidth=1.4;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="2069" y="2098" width="320" height="164" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_QUESTION-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_QUESTION" vertex="1">
+          <mxGeometry y="34" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_QUESTION-r0" value="quiz_question_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_QUESTION" vertex="1">
+          <mxGeometry x="56" y="34" width="264" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_QUESTION-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_QUESTION" vertex="1">
+          <mxGeometry y="60" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_QUESTION-r1" value="quiz_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_QUESTION" vertex="1">
+          <mxGeometry x="56" y="60" width="264" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_QUESTION-r2" value="content" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_QUESTION" vertex="1">
+          <mxGeometry y="86" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_QUESTION-r3" value="order_no" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_QUESTION" vertex="1">
+          <mxGeometry y="112" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_QUESTION-r4" value="point" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_QUESTION" vertex="1">
+          <mxGeometry y="138" width="320" height="26" as="geometry" />
         </mxCell>
         <mxCell id="QUIZ_OPTION" value="QUIZ_OPTION (đáp án)" style="swimlane;html=1;rounded=1;startSize=34;horizontal=1;fontStyle=1;fontSize=15;strokeWidth=1.4;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="2229" y="2452" width="240" height="164" as="geometry" />
@@ -619,8 +757,86 @@
         <mxCell id="QUIZ_RESULT" value="QUIZ_RESULT (bài làm)" style="swimlane;html=1;rounded=1;startSize=34;horizontal=1;fontStyle=1;fontSize=15;strokeWidth=1.4;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="2520" y="2072" width="290" height="372" as="geometry" />
         </mxCell>
+        <mxCell id="QUIZ_RESULT-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="34" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r0" value="result_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry x="56" y="34" width="234" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="60" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r1" value="quiz_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry x="56" y="60" width="234" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="86" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r2" value="student_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry x="56" y="86" width="234" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r3" value="attempt_no" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="112" width="290" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r4" value="file_url (bài nộp dạng file)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="138" width="290" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r5" value="score" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="164" width="290" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r6" value="teacher_comment" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="190" width="290" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r7" value="adjust_note (Admin sửa điểm)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="216" width="290" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r8" value="status" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="242" width="290" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r9" value="started_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="268" width="290" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r10" value="submitted_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="294" width="290" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r11" value="graded_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="320" width="290" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT-r12" value="UQ(quiz_id, student_id, attempt_no)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1">
+          <mxGeometry y="346" width="290" height="26" as="geometry" />
+        </mxCell>
         <mxCell id="QUIZ_RESULT_DETAIL" value="QUIZ_RESULT_DETAIL (trả lời 1 câu)" style="swimlane;html=1;rounded=1;startSize=34;horizontal=1;fontStyle=1;fontSize=15;strokeWidth=1.4;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="2174" y="2728" width="350" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT_DETAIL-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT_DETAIL" vertex="1">
+          <mxGeometry y="34" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT_DETAIL-r0" value="detail_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1">
+          <mxGeometry x="56" y="34" width="294" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT_DETAIL-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT_DETAIL" vertex="1">
+          <mxGeometry y="60" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT_DETAIL-r1" value="result_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1">
+          <mxGeometry x="56" y="60" width="294" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT_DETAIL-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT_DETAIL" vertex="1">
+          <mxGeometry y="86" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT_DETAIL-r2" value="quiz_question_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1">
+          <mxGeometry x="56" y="86" width="294" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT_DETAIL-k3" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT_DETAIL" vertex="1">
+          <mxGeometry y="112" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT_DETAIL-r3" value="chosen_option_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1">
+          <mxGeometry x="56" y="112" width="294" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT_DETAIL-r4" value="is_correct" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1">
+          <mxGeometry y="138" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_RESULT_DETAIL-r5" value="point_earned" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1">
+          <mxGeometry y="164" width="350" height="26" as="geometry" />
         </mxCell>
         <mxCell id="ROLE" value="ROLE" style="rhombus;whiteSpace=wrap;html=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;strokeWidth=1.4;" parent="1" vertex="1">
           <mxGeometry x="1269" y="422" width="90" height="70" as="geometry" />
@@ -881,7 +1097,67 @@
         <mxCell id="legend" value="&lt;b&gt;CHÚ THÍCH&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;background:#dae8fc&quot;&gt;&amp;nbsp;Xanh dương&amp;nbsp;&lt;/span&gt; Người dùng &amp;amp; vai trò&lt;br&gt;&lt;span style=&quot;background:#d5e8d4&quot;&gt;&amp;nbsp;Xanh lá&amp;nbsp;&lt;/span&gt; Môn học, lớp, đăng ký, học tập&lt;br&gt;&lt;span style=&quot;background:#fff2cc&quot;&gt;&amp;nbsp;Vàng&amp;nbsp;&lt;/span&gt; Phân công &amp;amp; lương giáo viên&lt;br&gt;&lt;span style=&quot;background:#e1d5e7&quot;&gt;&amp;nbsp;Tím&amp;nbsp;&lt;/span&gt; Ngân hàng câu hỏi &amp;amp; thi cuối kỳ&lt;br&gt;&lt;span style=&quot;background:#ffe6cc&quot;&gt;&amp;nbsp;Cam&amp;nbsp;&lt;/span&gt; Quiz theo chương&lt;br&gt;&lt;br&gt;Ký hiệu chân gà: &lt;b&gt;||&lt;/b&gt; đúng một · &lt;b&gt;o|&lt;/b&gt; không hoặc một · &lt;b&gt;o&amp;lt;&lt;/b&gt; không hoặc nhiều · &lt;b&gt;|&amp;lt;&lt;/b&gt; một hoặc nhiều.&lt;br&gt;USER là bảng cha của ADMIN, TEACHER, STUDENT qua quan hệ ROLE (user_id vừa là PK vừa là FK)." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;" parent="1" vertex="1">
           <mxGeometry y="-260" width="520" height="220" as="geometry" />
         </mxCell>
-      <mxCell id="QUESTIONS-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUESTIONS" vertex="1"><mxGeometry x="0" y="34" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUESTIONS-r0" value="question_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1"><mxGeometry x="56" y="34" width="344" height="26" as="geometry" /></mxCell><mxCell id="QUESTIONS-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUESTIONS" vertex="1"><mxGeometry x="0" y="60" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUESTIONS-r1" value="course_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1"><mxGeometry x="56" y="60" width="344" height="26" as="geometry" /></mxCell><mxCell id="QUESTIONS-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUESTIONS" vertex="1"><mxGeometry x="0" y="86" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUESTIONS-r2" value="teacher_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1"><mxGeometry x="56" y="86" width="344" height="26" as="geometry" /></mxCell><mxCell id="QUESTIONS-r3" value="question_type (1 đáp án | tự luận)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1"><mxGeometry x="0" y="112" width="400" height="26" as="geometry" /></mxCell><mxCell id="QUESTIONS-r4" value="description" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1"><mxGeometry x="0" y="138" width="400" height="26" as="geometry" /></mxCell><mxCell id="QUESTIONS-r5" value="status" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1"><mxGeometry x="0" y="164" width="400" height="26" as="geometry" /></mxCell><mxCell id="QUESTIONS-r6" value="date_question_created" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUESTIONS" vertex="1"><mxGeometry x="0" y="190" width="400" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="0" y="34" width="56" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-r0" value="answer_detail_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="56" y="34" width="254" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="0" y="60" width="56" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-r1" value="answer_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="56" y="60" width="254" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="0" y="86" width="56" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-r2" value="question_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="56" y="86" width="254" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-k3" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="0" y="112" width="56" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-r3" value="chosen_option_id (trắc nghiệm)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="56" y="112" width="254" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-r4" value="answer_text (tự luận)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="0" y="138" width="310" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-r5" value="is_correct" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="0" y="164" width="310" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-r6" value="point_earned" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="0" y="190" width="310" height="26" as="geometry" /></mxCell><mxCell id="ANSWER_DETAIL-r7" value="teacher_comment" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="ANSWER_DETAIL" vertex="1"><mxGeometry x="0" y="216" width="310" height="26" as="geometry" /></mxCell><mxCell id="r32" value="" style="edgeStyle=none;rounded=0;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;endFill=0;startFill=0;endSize=10;startSize=10;exitX=1.0000;exitY=0.5000;exitDx=0;exitDy=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;fontSize=11;labelBackgroundColor=#ffffff;" parent="1" source="QOPT" target="ANSWER_DETAIL" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell><mxCell id="QUIZ-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="34" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r0" value="quiz_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="56" y="34" width="204" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="60" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r1" value="class_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="56" y="60" width="204" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="86" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r2" value="section_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="56" y="86" width="204" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r3" value="title" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="112" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r4" value="quiz_type (trắc nghiệm | nộp file)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="138" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r5" value="description" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="164" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r6" value="attachment_url (đề dạng file)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="190" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r7" value="time_limit (phút)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="216" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r8" value="due_at (hạn nộp)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="242" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r9" value="max_attempts" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="268" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r10" value="status" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="294" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r11" value="date_created" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="320" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r12" value="published_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="346" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ-r13" value="UQ(class_id, section_id)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ" vertex="1"><mxGeometry x="0" y="372" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_QUESTION-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_QUESTION" vertex="1"><mxGeometry x="0" y="34" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_QUESTION-r0" value="quiz_question_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_QUESTION" vertex="1"><mxGeometry x="56" y="34" width="264" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_QUESTION-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_QUESTION" vertex="1"><mxGeometry x="0" y="60" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_QUESTION-r1" value="quiz_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_QUESTION" vertex="1"><mxGeometry x="56" y="60" width="264" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_QUESTION-r2" value="content" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_QUESTION" vertex="1"><mxGeometry x="0" y="86" width="320" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_QUESTION-r3" value="order_no" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_QUESTION" vertex="1"><mxGeometry x="0" y="112" width="320" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_QUESTION-r4" value="point" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_QUESTION" vertex="1"><mxGeometry x="0" y="138" width="320" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="34" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r0" value="result_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="56" y="34" width="234" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="60" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r1" value="quiz_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="56" y="60" width="234" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="86" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r2" value="student_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="56" y="86" width="234" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r3" value="attempt_no" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="112" width="290" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r4" value="file_url (bài nộp dạng file)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="138" width="290" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r5" value="score" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="164" width="290" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r6" value="teacher_comment" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="190" width="290" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r7" value="adjust_note (Admin sửa điểm)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="216" width="290" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r8" value="status" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="242" width="290" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r9" value="started_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="268" width="290" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r10" value="submitted_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="294" width="290" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r11" value="graded_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="320" width="290" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT-r12" value="UQ(quiz_id, student_id, attempt_no)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT" vertex="1"><mxGeometry x="0" y="346" width="290" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT_DETAIL-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT_DETAIL" vertex="1"><mxGeometry x="0" y="34" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT_DETAIL-r0" value="detail_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1"><mxGeometry x="56" y="34" width="294" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT_DETAIL-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT_DETAIL" vertex="1"><mxGeometry x="0" y="60" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT_DETAIL-r1" value="result_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1"><mxGeometry x="56" y="60" width="294" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT_DETAIL-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT_DETAIL" vertex="1"><mxGeometry x="0" y="86" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT_DETAIL-r2" value="quiz_question_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1"><mxGeometry x="56" y="86" width="294" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT_DETAIL-k3" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_RESULT_DETAIL" vertex="1"><mxGeometry x="0" y="112" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT_DETAIL-r3" value="chosen_option_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1"><mxGeometry x="56" y="112" width="294" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT_DETAIL-r4" value="is_correct" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1"><mxGeometry x="0" y="138" width="350" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_RESULT_DETAIL-r5" value="point_earned" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_RESULT_DETAIL" vertex="1"><mxGeometry x="0" y="164" width="350" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK" value="QUIZ_FEEDBACK" style="swimlane;html=1;rounded=1;startSize=34;horizontal=1;fontStyle=1;fontSize=15;strokeWidth=1.4;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1"><mxGeometry x="1640" y="2180" width="260" height="268" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="0" y="34" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-r0" value="feedback_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="56" y="34" width="204" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="0" y="60" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-r1" value="quiz_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="56" y="60" width="204" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="0" y="86" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-r2" value="teacher_id (người gửi)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="56" y="86" width="204" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-k3" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="0" y="112" width="56" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-r3" value="admin_id (người xử lý)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="56" y="112" width="204" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-r4" value="content" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="0" y="138" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-r5" value="status" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="0" y="164" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-r6" value="admin_note" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="0" y="190" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-r7" value="created_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="0" y="216" width="260" height="26" as="geometry" /></mxCell><mxCell id="QUIZ_FEEDBACK-r8" value="resolved_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1"><mxGeometry x="0" y="242" width="260" height="26" as="geometry" /></mxCell><mxCell id="r43" value="" style="edgeStyle=none;rounded=0;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;endFill=0;startFill=0;endSize=10;startSize=10;exitX=0.0000;exitY=0.9000;exitDx=0;exitDy=0;entryX=1.0000;entryY=0.1000;entryDx=0;entryDy=0;fontSize=11;labelBackgroundColor=#ffffff;" parent="1" source="QUIZ" target="QUIZ_FEEDBACK" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell><mxCell id="r44" value="báo sai sót" style="edgeStyle=none;rounded=0;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;endFill=0;startFill=0;endSize=10;startSize=10;exitX=0.9500;exitY=1.0000;exitDx=0;exitDy=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;fontSize=11;labelBackgroundColor=#ffffff;" parent="1" source="TEACHER" target="QUIZ_FEEDBACK" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell><mxCell id="r45" value="xử lý, sửa điểm" style="edgeStyle=none;rounded=0;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;endFill=0;startFill=0;endSize=10;startSize=10;exitX=0.6000;exitY=1.0000;exitDx=0;exitDy=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;fontSize=11;labelBackgroundColor=#ffffff;" parent="1" source="ADMIN" target="QUIZ_FEEDBACK" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></root>
+        <mxCell id="r32" value="" style="edgeStyle=none;rounded=0;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;endFill=0;startFill=0;endSize=10;startSize=10;exitX=1.0000;exitY=0.5000;exitDx=0;exitDy=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;fontSize=11;labelBackgroundColor=#ffffff;" parent="1" source="QOPT" target="ANSWER_DETAIL" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK" value="QUIZ_FEEDBACK" style="swimlane;html=1;rounded=1;startSize=34;horizontal=1;fontStyle=1;fontSize=15;strokeWidth=1.4;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="1640" y="2180" width="260" height="268" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-k0" value="PK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry y="34" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-r0" value="feedback_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry x="56" y="34" width="204" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-k1" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry y="60" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-r1" value="quiz_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry x="56" y="60" width="204" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-k2" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry y="86" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-r2" value="teacher_id (người gửi)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry x="56" y="86" width="204" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-k3" value="FK" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;fontStyle=1;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry y="112" width="56" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-r3" value="admin_id (người xử lý)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry x="56" y="112" width="204" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-r4" value="content" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry y="138" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-r5" value="status" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry y="164" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-r6" value="admin_note" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry y="190" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-r7" value="created_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry y="216" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QUIZ_FEEDBACK-r8" value="resolved_at" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;strokeColor=#d0d0d0;fillColor=#fff;" parent="QUIZ_FEEDBACK" vertex="1">
+          <mxGeometry y="242" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="r43" value="" style="edgeStyle=none;rounded=0;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;endFill=0;startFill=0;endSize=10;startSize=10;exitX=0.0000;exitY=0.9000;exitDx=0;exitDy=0;entryX=1.0000;entryY=0.1000;entryDx=0;entryDy=0;fontSize=11;labelBackgroundColor=#ffffff;" parent="1" source="QUIZ" target="QUIZ_FEEDBACK" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r44" value="báo sai sót" style="edgeStyle=none;rounded=0;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;endFill=0;startFill=0;endSize=10;startSize=10;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=11;labelBackgroundColor=#ffffff;curved=0;" parent="1" source="TEACHER-k0" target="QUIZ_FEEDBACK" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-450" y="632" />
+              <mxPoint x="-450" y="2860" />
+              <mxPoint x="1770" y="2860" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r45" value="xử lý, sửa điểm" style="edgeStyle=none;rounded=0;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;endFill=0;startFill=0;endSize=10;startSize=10;exitX=0.6000;exitY=1.0000;exitDx=0;exitDy=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;fontSize=11;labelBackgroundColor=#ffffff;" parent="1" source="ADMIN" target="QUIZ_FEEDBACK" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
     </mxGraphModel>
   </diagram>
 </mxfile>
