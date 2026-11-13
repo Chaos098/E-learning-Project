@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# draw.io backup / temp files
+.$*.bkp
+.$*.dtmp
