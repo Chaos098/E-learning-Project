@@ -1,0 +1,24 @@
+# CSDL PostgreSQL cho môi trường phát triển trên máy cá nhân.
+# Chạy: npm run db:up   ·   Dừng: npm run db:down
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: elearning-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-elearning}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-elearning}
+      POSTGRES_DB: ${POSTGRES_DB:-elearning}
+      TZ: Asia/Ho_Chi_Minh
+    ports:
+      - "${POSTGRES_PORT:-5440}:5432"
+    volumes:
+      - elearning-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-elearning} -d ${POSTGRES_DB:-elearning}"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  elearning-db-data:

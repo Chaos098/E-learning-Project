@@ -1,0 +1,12 @@
+// Prisma schema của dự án E-Learning.
+// Nguồn chuẩn của CSDL: So_do_CSDL.drawio (ERD v1.1) và docs/database/data-dictionary.md.
+// Các model được thêm dần theo từng sprint (xem PLAN.md).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}

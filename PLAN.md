@@ -8,18 +8,18 @@
 | Phương pháp | Agile / Scrum, sprint ngắn **2 – 3 ngày** |
 | Hạn nộp | **01/12/2026** (Q-30) |
 | Nhóm | 4 thành viên + Claude Code (Planner, Coder, Tester, E2E) |
-| Sprint hiện tại | **Sprint 0 — Khởi động** |
-| Cập nhật lần cuối | 13/11/2026 |
+| Sprint hiện tại | **Sprint 1 — Tài khoản, môn học & lớp học** (Sprint 0 đã xong, trừ việc bật CI) |
+| Cập nhật lần cuối | 14/11/2026 |
 
 ---
 
 ## 1. Tiến độ tổng quan
 
-**Tổng tiến độ phát triển: `░░░░░░░░░░` 0 / 195 SP (0%)** · Sprint 0: `▓▓▓▓▓░░░░░` 7 / 15 việc (47%)
+**Tổng tiến độ phát triển: `░░░░░░░░░░` 0 / 195 SP (0%)** · Sprint 0: `▓▓▓▓▓▓▓▓▓░` 14 / 15 việc (93%)
 
 | Sprint | Thời gian | Mục tiêu | SP kế hoạch | SP xong | Trạng thái |
 |---|---|---|---:|---:|---|
-| S0 | 16/10 – 14/11 | Khởi động, chốt yêu cầu & môi trường | — | — | 🔄 Đang làm |
+| S0 | 16/10 – 14/11 | Khởi động, chốt yêu cầu & môi trường | — | — | ✅ Xong, trừ T-0.13 ⛔ |
 | S1 | 15/11 – 17/11 | Tài khoản, môn học & lớp học | 43 | 0 | ⬜ Chưa bắt đầu |
 | S2 | 18/11 – 20/11 | Đăng ký, thanh toán & học tập | 34 | 0 | ⬜ Chưa bắt đầu |
 | S3 | 21/11 – 23/11 | Ngân hàng câu hỏi, đề thi, làm bài & chấm điểm | 44 | 0 | ⬜ Chưa bắt đầu |
@@ -36,7 +36,7 @@ gantt
     dateFormat YYYY-MM-DD
     axisFormat %d/%m
     section Khởi động
-    S0 Khởi động & môi trường             :active, s0, 2026-11-13, 2d
+    S0 Khởi động & môi trường             :done, s0, 2026-11-13, 2d
     section Must
     S1 Tài khoản, môn học, lớp            :s1, 2026-11-15, 3d
     S2 Đăng ký, thanh toán, học tập       :s2, after s1, 3d
@@ -84,7 +84,7 @@ gantt
 | **Tester** | Claude Code | Viết và chạy unit / integration test (Vitest) cho tiêu chí chấp nhận và quy tắc nghiệp vụ |
 | **E2E** | Claude Code | Viết và chạy kịch bản trên trình duyệt (Playwright) cho các luồng chính |
 
-Bốn vai trò của Claude Code sẽ được tạo thành các agent riêng trong `.claude/agents/` (việc T-0.10), mỗi agent có hướng dẫn và giới hạn công cụ riêng.
+Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`planner`, `coder`, `tester`, `e2e`), mỗi agent có hướng dẫn và giới hạn công cụ riêng. Agent mới chỉ được nạp khi mở phiên Claude Code mới.
 
 ---
 
@@ -129,10 +129,10 @@ Bốn vai trò của Claude Code sẽ được tạo thành các agent riêng tr
 | Thành phần | Lựa chọn | Lý do |
 |---|---|---|
 | Ngôn ngữ | TypeScript | Một ngôn ngữ cho cả giao diện và backend |
-| Framework | Next.js (App Router) | Giao diện và API trong cùng một project |
-| Giao diện | Tailwind CSS + shadcn/ui | Nhanh, đẹp, responsive sẵn |
-| CSDL | PostgreSQL (chạy bằng Docker) | Transaction tốt, phù hợp ERD nhiều quan hệ |
-| ORM | Prisma | Migration, seed, truy vấn có kiểu dữ liệu |
+| Framework | Next.js 16 (App Router) | Giao diện và API trong cùng một project |
+| Giao diện | Tailwind CSS 4 + shadcn/ui | Nhanh, đẹp, responsive sẵn |
+| CSDL | PostgreSQL 17 (chạy bằng Docker, cổng 5440) | Transaction tốt, phù hợp ERD nhiều quan hệ |
+| ORM | Prisma 7 | Migration, seed, truy vấn có kiểu dữ liệu |
 | Xác thực | Auth.js + bcrypt | Phiên đăng nhập an toàn, mật khẩu băm |
 | Thanh toán | Stripe chế độ test (Checkout + webhook), nút giả lập dự phòng | Q-13; PO đã có tài khoản Stripe test |
 | Lưu file | Thư mục `uploads/` trên máy cá nhân | File bài học, file đề và file nộp quiz |
@@ -203,7 +203,7 @@ Bốn vai trò của Claude Code sẽ được tạo thành các agent riêng tr
 
 ## 6. Sprint Backlog
 
-### Sprint 0 — Khởi động (16/10 – 14/11) 🔄
+### Sprint 0 — Khởi động (16/10 – 14/11) ✅
 
 **Mục tiêu:** Chốt yêu cầu, sơ đồ CSDL và công nghệ; dựng xong khung project chạy được.
 
@@ -214,16 +214,16 @@ Bốn vai trò của Claude Code sẽ được tạo thành các agent riêng tr
 - [x] T-0.5 **(PO)** Trả lời câu hỏi Q-01 → Q-26
 - [x] T-0.6 Chốt ERD v1.0 (`So_do_CSDL.drawio`), requirement v1.0 và lập lại backlog theo câu trả lời
 - [x] T-0.7 **(PO)** Trả lời 12 câu còn mở Q-27 → Q-38, nhất là hạn nộp đồ án (Q-30)
-- [ ] T-0.8 Viết từ điển dữ liệu (kiểu dữ liệu, ràng buộc, chỉ mục) vào `docs/database/`
-- [ ] T-0.9 `CLAUDE.md` (quy ước cho Claude Code), cập nhật `README.md` (`.gitignore` đã có)
-- [ ] T-0.10 Tạo 4 agent Claude Code trong `.claude/agents/`: Planner, Coder, Tester, E2E
-- [ ] T-0.11 Khởi tạo project Next.js + TypeScript, cấu trúc thư mục, lint + format
-- [ ] T-0.12 Docker Compose cho PostgreSQL, `.env.example`, tài khoản Stripe chế độ test
-- [ ] T-0.13 CI cơ bản trên GitHub Actions (lint + test)
-- [ ] T-0.14 Wireframe các màn hình chính → `docs/ui/`
-- [ ] T-0.15 Commit và push bản nền lên GitHub (tài liệu đã push ngày 13/11; còn khung project)
+- [x] T-0.8 Viết từ điển dữ liệu (kiểu dữ liệu, ràng buộc, chỉ mục) → `docs/database/data-dictionary.md`
+- [x] T-0.9 `.gitignore`, `CLAUDE.md` (quy ước cho Claude Code), cập nhật `README.md`
+- [x] T-0.10 Tạo 4 agent Claude Code trong `.claude/agents/`: Planner, Coder, Tester, E2E
+- [x] T-0.11 Khởi tạo project Next.js 16 + TypeScript, shadcn/ui, Vitest, Playwright, cấu trúc thư mục, lint + format
+- [x] T-0.12 Docker Compose cho PostgreSQL, Prisma 7, `.env.example` (khoá Stripe test do PO điền vào `.env` trước Sprint 2)
+- [ ] T-0.13 ⛔ CI trên GitHub Actions: lint, typecheck, format, unit test, build — file đã viết ở `.github/workflows-pending/ci.yml` nhưng **chưa bật**: token GitHub của PO thiếu quyền `workflow` nên không push được vào `.github/workflows/`
+- [x] T-0.14 Wireframe các màn hình chính → `docs/ui/wireframes.md`
+- [x] T-0.15 Commit và push bản nền lên GitHub
 
-**Demo cuối sprint:** Chạy một lệnh là có trang chủ trống + CSDL; 4 agent gọi được.
+**Demo cuối sprint:** Chạy `npm run up` là có trang chủ hiển thị "Cơ sở dữ liệu: Đã kết nối"; 4 agent có trong `.claude/agents/`.
 
 ### Sprint 1 — Tài khoản, môn học & lớp học (15/11 – 17/11) · 43 SP
 
@@ -324,10 +324,12 @@ Bốn vai trò của Claude Code sẽ được tạo thành các agent riêng tr
 
 ```text
 So_do_CSDL.drawio            ← ERD v1.1 (chính thức)
+CLAUDE.md                    ← quy ước cho Claude Code
+.claude/agents/              ← 4 agent: planner, coder, tester, e2e
 docs/
 ├── requirement.md           ← đặc tả yêu cầu v1.1
-├── database/                ← từ điển dữ liệu (T-0.8)
-├── ui/                      ← wireframe (T-0.14)
+├── database/                ← từ điển dữ liệu (data-dictionary.md)
+├── ui/                      ← wireframe (wireframes.md)
 └── report/                  ← báo cáo, slide đồ án (T-6.5)
 ```
 
@@ -351,7 +353,7 @@ docs/
 
 | Sprint | Đã demo | Tốt | Chưa tốt | Cải tiến sprint sau |
 |---|---|---|---|---|
-| S0 | | | | |
+| S0 | Chạy `npm run up`: trang chủ báo đã kết nối CSDL; `npm run check` và 4 kịch bản E2E pass (14/11) | Yêu cầu và ERD chốt xong trước khi code; khung project có sẵn lint và test | Trễ 6 ngày so với lịch đầu; draw.io ghi đè sơ đồ một lần | Đóng file `.drawio` trước khi nhờ Claude sửa sơ đồ; mỗi sprint commit ngay khi xong |
 
 ---
 
@@ -365,3 +367,4 @@ docs/
 | 02/11/2026 | Theo câu trả lời Q-01 → Q-26: ERD v1.0 (`So_do_CSDL.drawio`, 27 bảng), requirement v1.0 (49 user story), lập lại backlog 192 SP thành 9 sprint, thêm vai trò Planner / Coder / Tester / E2E cho Claude Code. |
 | 13/11/2026 | PO trả lời Q-27 → Q-38 (hạn nộp 01/12/2026; demo chỉ chạy trên máy cá nhân). Xoá `So_do_CSDL_de_xuat.drawio` và các file `.bkp`, thêm `.gitignore`, commit bản nền. |
 | 13/11/2026 | Theo câu trả lời Q-27 → Q-38: ERD v1.1 (bỏ `ANSWER_CHOICE`, thêm `QUIZ_FEEDBACK`, mở rộng cụm QUIZ), requirement v1.1 (50 user story, thêm US-50), backlog 195 SP xếp lại thành S1 → S6 kết thúc ngày 30/11; bỏ triển khai online. |
+| 14/11/2026 | Xong Sprint 0: khung Next.js 16 + Prisma 7 + PostgreSQL (Docker, cổng 5440), shadcn/ui, Vitest, Playwright; từ điển dữ liệu, wireframe, `CLAUDE.md`, 4 agent. Không bật Cache Components của Next.js để đơn giản hoá việc render theo phiên đăng nhập. CI đã viết nhưng chưa bật vì token GitHub thiếu quyền `workflow` (T-0.13). |

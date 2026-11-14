@@ -1,6 +1,43 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# next.js
+/.next/
+/out/
+/build
+next-env.d.ts
+*.tsbuildinfo
+
+# prisma
+/src/generated/
+
+# env files (chỉ commit .env.example)
+.env*
+!.env.example
+
+# file do người dùng tải lên
+/uploads/*
+!/uploads/.gitkeep
+
+# debug
+npm-debug.log*
+
 # macOS
 .DS_Store
 
 # draw.io backup / temp files
 .$*.bkp
 .$*.dtmp
+
+# misc
+*.pem
+.vercel
+
+/src/generated/prisma

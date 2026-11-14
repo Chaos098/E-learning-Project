@@ -1,0 +1,15 @@
+.next
+node_modules
+src/generated
+package-lock.json
+playwright-report
+test-results
+uploads
+prisma/migrations
+*.drawio
+docs
+PLAN.md
+README.md
+CLAUDE.md
+AGENTS.md
+.claude
