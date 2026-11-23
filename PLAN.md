@@ -8,19 +8,19 @@
 | Phương pháp | Agile / Scrum, sprint ngắn **2 – 3 ngày** |
 | Hạn nộp | **06/12/2026** (Q-30, PO dời từ 01/12 sang 06/12 ngày 23/11) |
 | Nhóm | 4 thành viên + Claude Code (Planner, Coder, Tester, E2E) |
-| Sprint hiện tại | **Sprint 1 — Tài khoản, môn học & lớp học** (23/11 – 25/11; Sprint 0 đã xong) |
+| Sprint hiện tại | **Sprint 1 — Tài khoản, môn học & lớp học** (23/11 – 25/11): code xong ngày 23/11, chờ nhóm review và PO nghiệm thu |
 | Cập nhật lần cuối | 23/11/2026 |
 
 ---
 
 ## 1. Tiến độ tổng quan
 
-**Tổng tiến độ phát triển: `░░░░░░░░░░` 0 / 195 SP (0%)** · Sprint 0: `▓▓▓▓▓▓▓▓▓▓` 15 / 15 việc (100%)
+**Tổng tiến độ phát triển: `▓▓░░░░░░░░` 43 / 195 SP code xong (22%), chờ nhóm review** · Sprint 0: `▓▓▓▓▓▓▓▓▓▓` 15 / 15 việc (100%)
 
 | Sprint | Thời gian | Mục tiêu | SP kế hoạch | SP xong | Trạng thái |
 |---|---|---|---:|---:|---|
 | S0 | 16/10 – 14/11 | Khởi động, chốt yêu cầu & môi trường | — | — | ✅ Xong (T-0.13 xong ngày 23/11) |
-| S1 | 23/11 – 25/11 | Tài khoản, môn học & lớp học | 43 | 0 | ⬜ Chưa bắt đầu |
+| S1 | 23/11 – 25/11 | Tài khoản, môn học & lớp học | 43 | 43 👀 | 👀 Code xong 23/11, chờ review |
 | S2 | 26/11 – 27/11 | Đăng ký, thanh toán & học tập | 34 | 0 | ⬜ Chưa bắt đầu |
 | S3 | 28/11 – 30/11 | Ngân hàng câu hỏi, đề thi, làm bài & chấm điểm | 44 | 0 | ⬜ Chưa bắt đầu |
 | S4 | 01/12 – 02/12 | Quiz theo chương & lương | 29 | 0 | ⬜ Chưa bắt đầu |
@@ -150,19 +150,19 @@ Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`plann
 
 | Mã | Epic | User story (tóm tắt) | Ưu tiên | SP | Sprint | Trạng thái |
 |---|---|---|---|---:|---|---|
-| US-01 | E1 Tài khoản | Khách đăng ký tài khoản học viên | Must | 3 | S1 | ⬜ |
-| US-02 | E1 Tài khoản | Đăng nhập / đăng xuất | Must | 3 | S1 | ⬜ |
-| US-03 | E1 Tài khoản | Phân quyền 3 vai trò | Must | 5 | S1 | ⬜ |
+| US-01 | E1 Tài khoản | Khách đăng ký tài khoản học viên | Must | 3 | S1 | 👀 |
+| US-02 | E1 Tài khoản | Đăng nhập / đăng xuất | Must | 3 | S1 | 👀 |
+| US-03 | E1 Tài khoản | Phân quyền 3 vai trò | Must | 5 | S1 | 👀 |
 | US-04 | E1 Tài khoản | Hồ sơ cá nhân, đổi mật khẩu | Should | 2 | S5 | ⬜ |
-| US-05 | E1 Tài khoản | Admin quản lý tài khoản, tạo giảng viên và Admin khác | Must | 5 | S1 | ⬜ |
+| US-05 | E1 Tài khoản | Admin quản lý tài khoản, tạo giảng viên và Admin khác | Must | 5 | S1 | 👀 |
 | US-06 | E1 Tài khoản | Quên mật khẩu | Could | 3 | S5 | ⬜ |
-| US-07 | E2 Môn học | Admin tạo / sửa / ẩn môn học | Must | 3 | S1 | ⬜ |
-| US-08 | E2 Môn học | Quản lý chương | Must | 3 | S1 | ⬜ |
-| US-09 | E2 Môn học | Quản lý bài học (video, văn bản, file) | Must | 5 | S1 | ⬜ |
-| US-10 | E2 Môn học | Danh mục môn học + tìm kiếm | Must | 3 | S1 | ⬜ |
-| US-11 | E2 Môn học | Chi tiết môn học, lớp đang mở | Must | 3 | S1 | ⬜ |
-| US-12 | E3 Lớp học | Admin mở lớp, phân công giảng viên | Must | 5 | S1 | ⬜ |
-| US-13 | E3 Lớp học | Giảng viên xem lớp được phân công | Must | 3 | S1 | ⬜ |
+| US-07 | E2 Môn học | Admin tạo / sửa / ẩn môn học | Must | 3 | S1 | 👀 |
+| US-08 | E2 Môn học | Quản lý chương | Must | 3 | S1 | 👀 |
+| US-09 | E2 Môn học | Quản lý bài học (video, văn bản, file) | Must | 5 | S1 | 👀 |
+| US-10 | E2 Môn học | Danh mục môn học + tìm kiếm | Must | 3 | S1 | 👀 |
+| US-11 | E2 Môn học | Chi tiết môn học, lớp đang mở | Must | 3 | S1 | 👀 (số chỗ còn lại tính đúng từ S2) |
+| US-12 | E3 Lớp học | Admin mở lớp, phân công giảng viên | Must | 5 | S1 | 👀 |
+| US-13 | E3 Lớp học | Giảng viên xem lớp được phân công | Must | 3 | S1 | 👀 (danh sách học viên có dữ liệu từ S2) |
 | US-14 | E3 Lớp học | Giảng viên đề xuất không dạy lớp | Should | 3 | S5 | ⬜ |
 | US-15 | E3 Lớp học | Admin duyệt / từ chối đề xuất | Should | 3 | S5 | ⬜ |
 | US-16 | E3 Lớp học | Mở lớp theo sĩ số tối thiểu, huỷ + hoàn tiền, kết thúc lớp | Must | 5 | S2 | ⬜ |
@@ -178,7 +178,7 @@ Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`plann
 | US-26 | E6 Câu hỏi | Giảng viên soạn câu hỏi (trắc nghiệm, tự luận) cho môn | Must | 5 | S3 | ⬜ |
 | US-27 | E6 Câu hỏi | Phương án và đáp án đúng | Must | 5 | S3 | ⬜ |
 | US-28 | E6 Câu hỏi | Nhập câu hỏi từ Excel/CSV | Could | 5 | S5 | ⬜ |
-| US-29 | E7 Đề thi | Tự tạo đề cuối kỳ khi mở lớp | Must | 2 | S1 | ⬜ |
+| US-29 | E7 Đề thi | Tự tạo đề cuối kỳ khi mở lớp | Must | 2 | S1 | 👀 |
 | US-30 | E7 Đề thi | Admin lên lịch thi | Must | 3 | S3 | ⬜ |
 | US-31 | E7 Đề thi | Admin random câu hỏi tạo đề | Must | 5 | S3 | ⬜ |
 | US-32 | E7 Đề thi | Xem trước đề thi | Should | 2 | S5 | ⬜ |
@@ -227,22 +227,22 @@ Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`plann
 
 **Demo cuối sprint:** Chạy `npm run up` là có trang chủ hiển thị "Cơ sở dữ liệu: Đã kết nối"; 4 agent có trong `.claude/agents/`.
 
-### Sprint 1 — Tài khoản, môn học & lớp học (23/11 – 25/11) · 43 SP
+### Sprint 1 — Tài khoản, môn học & lớp học (23/11 – 25/11) · 43 SP 👀
 
 **Mục tiêu:** Ba vai trò đăng nhập được; Admin xây xong môn học, mở lớp và phân công giảng viên; khách xem được.
 **User story:** US-01, US-02, US-03, US-05, US-07, US-08, US-09, US-10, US-11, US-12, US-13, US-29
 
-- [ ] T-1.1 Prisma schema + migration: `USER`, `ADMIN`, `TEACHER`, `STUDENT`, `COURSE`, `SECTION`, `LESSON`, `CLASSES`, `EXAM` (thông tin cơ bản)
-- [ ] T-1.2 Seed: 1 Admin, 3 giảng viên (có hệ số lương), 10 học viên, môn học, chương, bài học, lớp mẫu
-- [ ] T-1.3 Đăng ký học viên, đăng nhập / đăng xuất, quản lý phiên (US-01, US-02)
-- [ ] T-1.4 Middleware phân quyền theo vai trò, trang 403; layout và menu theo vai trò (US-03)
-- [ ] T-1.5 Admin: danh sách tài khoản, tạo giảng viên, tạo Admin khác, sửa hệ số lương, khoá / mở (US-05)
-- [ ] T-1.6 Admin: tạo / sửa / ẩn môn học; quản lý chương và bài học, sắp xếp thứ tự (US-07, US-08, US-09)
-- [ ] T-1.7 Tải lên file đính kèm bài học, giới hạn dung lượng và định dạng (NFR-05)
-- [ ] T-1.8 Danh mục và chi tiết môn học (US-10, US-11)
-- [ ] T-1.9 Admin: mở lớp, phân công giảng viên; tự tạo đề cuối kỳ `DISABLED` (US-12, US-29)
-- [ ] T-1.10 Giảng viên: xem lớp được phân công và học viên trong lớp (US-13)
-- [ ] T-1.11 Tester: đăng ký, đăng nhập, phân quyền · E2E: đăng nhập 3 vai trò; Admin tạo môn → mở lớp → khách thấy lớp
+- [x] T-1.1 Prisma schema + migration: `USER`, `ADMIN`, `TEACHER`, `STUDENT`, `COURSE`, `SECTION`, `LESSON`, `CLASSES`, `EXAM` (thông tin cơ bản)
+- [x] T-1.2 Seed: 1 Admin, 3 giảng viên (có hệ số lương), 10 học viên, môn học, chương, bài học, lớp mẫu
+- [x] T-1.3 Đăng ký học viên, đăng nhập / đăng xuất, quản lý phiên (US-01, US-02)
+- [x] T-1.4 Middleware phân quyền theo vai trò, trang 403; layout và menu theo vai trò (US-03)
+- [x] T-1.5 Admin: danh sách tài khoản, tạo giảng viên, tạo Admin khác, sửa hệ số lương, khoá / mở (US-05)
+- [x] T-1.6 Admin: tạo / sửa / ẩn môn học; quản lý chương và bài học, sắp xếp thứ tự (US-07, US-08, US-09)
+- [x] T-1.7 Tải lên file đính kèm bài học, giới hạn dung lượng và định dạng (NFR-05)
+- [x] T-1.8 Danh mục và chi tiết môn học (US-10, US-11)
+- [x] T-1.9 Admin: mở lớp, phân công giảng viên; tự tạo đề cuối kỳ `DISABLED` (US-12, US-29)
+- [x] T-1.10 Giảng viên: xem lớp được phân công và học viên trong lớp (US-13)
+- [x] T-1.11 Tester: đăng ký, đăng nhập, phân quyền · E2E: đăng nhập 3 vai trò; Admin tạo môn → mở lớp → khách thấy lớp
 
 **Demo cuối sprint:** Đăng nhập bằng 3 vai trò, mỗi vai trò thấy menu riêng; Admin tạo môn học có chương và bài học, mở lớp và giao cho giảng viên; khách thấy lớp đang nhận đăng ký.
 
@@ -376,3 +376,4 @@ docs/
 | 16/11/2026 | Thêm `docs/architecture.md` mô tả cấu trúc hệ thống (thành phần chạy, các tầng, cấu trúc thư mục, 10 phân hệ, luồng xử lý, quyết định kiến trúc). |
 | 23/11/2026 | Đổi tên `docs/CLAUDE.md` thành `docs/sprint-reports.md`: tránh trùng tên với `CLAUDE.md` ở gốc, và tránh để Claude Code tự nạp nhật ký sprint như một file chỉ dẫn. |
 | 23/11/2026 | Xử lý TD-07: PO dời hạn nộp từ 01/12 sang **06/12/2026**, giữ nguyên 195 SP. Xếp lại lịch: S1 23 – 25/11, S2 26 – 27/11, S3 28 – 30/11, S4 01 – 02/12, S5 03 – 04/12, S6 05 – 06/12. TD-01: PO cấp token GitHub mới, chuyển `ci.yml` vào `.github/workflows/`, push và CI chạy lần đầu pass — xong T-0.13. |
+| 23/11/2026 | Code xong Sprint 1 (T-1.1 → T-1.11, 12 user story, 43 SP) trên nhánh `feature/sprint-1`, chờ nhóm review: migration 9 bảng đầu tiên kèm ràng buộc CHECK, dữ liệu mẫu, Auth.js v5 (đăng nhập bằng email + mật khẩu, phiên JWT), `proxy.ts` và trang 403, quản lý tài khoản, môn học / chương / bài học có file đính kèm, mở lớp tự tạo đề thi cuối kỳ, trang giảng viên. 61 test Vitest, 24 kịch bản Playwright (máy tính và điện thoại). CI thêm PostgreSQL để chạy test tích hợp. |

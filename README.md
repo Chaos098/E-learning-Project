@@ -13,7 +13,17 @@
 npm run up
 ```
 
-Lệnh này tạo file `.env`, cài thư viện, bật PostgreSQL trong Docker (cổng 5440), áp migration rồi chạy ứng dụng ở http://localhost:3000. Trang chủ hiển thị trạng thái ứng dụng và cơ sở dữ liệu.
+Lệnh này tạo file `.env` (tự sinh `AUTH_SECRET`), cài thư viện, bật PostgreSQL trong Docker (cổng 5440), áp migration, nạp dữ liệu mẫu nếu CSDL còn trống rồi chạy ứng dụng ở http://localhost:3000.
+
+## Tài khoản mẫu
+
+Dữ liệu mẫu (`prisma/seed.ts`) dùng chung mật khẩu **`matkhau123`** — chỉ dùng trên máy cá nhân.
+
+| Vai trò | Email |
+|---|---|
+| Admin | `admin@elearning.local` |
+| Giảng viên | `gv.tranb@elearning.local`, `gv.lec@elearning.local`, `gv.phamd@elearning.local` |
+| Học viên | `hv01@elearning.local` → `hv10@elearning.local` |
 
 Từ lần sau chỉ cần:
 
@@ -30,8 +40,8 @@ npm run dev
 | Lệnh | Việc |
 |---|---|
 | `npm run check` | Lint, typecheck, kiểm tra format và unit test |
-| `npm run test` | Unit test (Vitest) |
-| `npm run test:e2e` | Kiểm thử trên trình duyệt (Playwright); lần đầu chạy `npx playwright install chromium` |
+| `npm run test` | Unit test và test tích hợp (Vitest); test tích hợp cần CSDL đang chạy |
+| `npm run test:e2e` | Kiểm thử trên trình duyệt (Playwright, cổng 3100); lần đầu chạy `npx playwright install chromium`. Phải tắt `npm run dev` trước vì Next 16 không cho chạy hai dev server trong cùng thư mục |
 | `npm run db:migrate` | Tạo và áp migration sau khi sửa `prisma/schema.prisma` |
 | `npm run db:seed` | Nạp dữ liệu mẫu |
 | `npm run db:studio` | Xem dữ liệu bằng Prisma Studio |
@@ -39,7 +49,7 @@ npm run dev
 
 ## Công nghệ
 
-Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 + shadcn/ui · PostgreSQL 17 · Prisma 7 · Zod · Vitest · Playwright · Stripe (chế độ test)
+Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 + shadcn/ui · PostgreSQL 17 · Prisma 7 · Auth.js v5 · Zod · Vitest · Playwright · Stripe (chế độ test)
 
 ## Tài liệu
 
