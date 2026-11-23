@@ -11,7 +11,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-elearning}
       TZ: Asia/Ho_Chi_Minh
     ports:
-      - "${POSTGRES_PORT:-5440}:5432"
+      - "127.0.0.1:${POSTGRES_PORT:-5440}:5432"
     volumes:
       - elearning-db-data:/var/lib/postgresql/data
     healthcheck:

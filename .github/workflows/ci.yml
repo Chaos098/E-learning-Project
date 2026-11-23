@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Chạy bằng tay cho một nhánh bất kỳ: nút "Run workflow" ở tab Actions,
+  # hoặc `gh workflow run CI --ref <tên-nhánh>`.
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -16,6 +19,21 @@ jobs:
     timeout-minutes: 15
     env:
       DATABASE_URL: postgresql://elearning:elearning@localhost:5432/elearning?schema=public
+    # CSDL cho test tích hợp (Vitest gọi service thật, xem src/test/factories.ts).
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: elearning
+          POSTGRES_PASSWORD: elearning
+          POSTGRES_DB: elearning
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U elearning -d elearning"
+          --health-interval 3s
+          --health-timeout 3s
+          --health-retries 20
     steps:
       - uses: actions/checkout@v4
 
@@ -26,6 +44,13 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # Khoá ký phiên Auth.js chỉ dùng trong lần chạy CI này, sinh ngẫu nhiên, không lưu ở đâu.
+      - name: Generate AUTH_SECRET
+        run: echo "AUTH_SECRET=$(openssl rand -base64 33)" >> "$GITHUB_ENV"
+
+      - name: Apply migrations
+        run: npx prisma migrate deploy
 
       - name: Lint
         run: npm run lint

@@ -21,8 +21,89 @@ File này ghi lại **kết quả thật** của từng sprint: việc đã xong
 | TD-03 | Ứng dụng chưa chạy trong Docker: hiện chỉ CSDL chạy bằng Docker Compose, ứng dụng chạy bằng `npm`. NFR-09 yêu cầu cả hệ thống chạy bằng Docker Compose | S0 | Sprint 6 | ⬜ |
 | TD-04 | ERD chưa có chỗ lưu 3 tham số lương (lương cơ bản, phụ cấp lớp, đơn giá học viên) | S0 | Sprint 4 (US-45) | ⬜ |
 | TD-05 | Chưa có thành viên nhóm nào review Sprint 0 (Definition of Done yêu cầu) | S0 | Trước khi merge Sprint 1 | ⬜ Chờ nhóm |
-| TD-06 | `npm audit` báo 7 lỗ hổng mức trung bình trong thư viện phụ thuộc, chưa xem xét | S0 | Sprint 6 | ⬜ |
+| TD-06 | `npm audit` báo 7 lỗ hổng mức trung bình trong thư viện phụ thuộc, chưa xem xét | S0 | Sprint 6 | ⬜ 23/11: còn 7 lỗ hổng (4 trung bình, 3 cao) sau khi cài lại thư viện |
 | TD-07 | Lịch đang trễ: Sprint 1 dự kiến 15 – 17/11 nhưng tới 16/11 chưa bắt đầu | S0 | Ngay | ✅ 23/11: PO dời hạn nộp sang 06/12/2026, giữ đủ 195 SP; lịch mới S1 23 – 25/11 → S6 05 – 06/12 trong PLAN.md |
+| TD-08 | Sprint 1 chưa commit và chưa được nhóm review: toàn bộ thay đổi nằm trên nhánh `feature/sprint-1` (chưa commit), chưa merge vào `main` | S1 | Trước khi bắt đầu Sprint 2 | 🔄 23/11: đã commit và push nhánh `feature/sprint-1` (5 commit, `3e49578` → `be91e39`); chờ nhóm review và merge vào `main` |
+| TD-09 | US-13 và US-11 phụ thuộc Sprint 2: giảng viên chưa thấy học viên trong lớp, số chỗ còn lại đang bằng sĩ số tối đa (chưa có bảng `study` / `enrollment`). Chỗ cần sửa: `src/server/classes/counts.ts` và `teacherGetClass` | S1 | Sprint 2 (T-2.1) | ⬜ |
+| TD-10 | Học viên chưa tải được file đính kèm bài học (`canDownloadLessonAttachment` trả `false` cho học viên) vì chưa có quyền vào lớp | S1 | Sprint 2 (T-2.5) | ⬜ |
+
+---
+
+## Sprint 1 — Tài khoản, môn học & lớp học (23/11 – 25/11/2026)
+
+Báo cáo viết ngày 23/11/2026, ngay sau khi code xong. Nhánh `feature/sprint-1`, **chưa commit** (chờ PO cho phép, TD-08).
+
+### 1. Kết quả so với mục tiêu
+
+**Mục tiêu:** ba vai trò đăng nhập được; Admin xây xong môn học, mở lớp và phân công giảng viên; khách xem được.
+**Kết quả:** code xong 12 / 12 user story, 43 / 43 SP, 11 / 11 việc T-1.x. Trạng thái 👀: chưa được thành viên nhóm review, chưa merge vào `main` nên chưa đạt đủ Definition of Done.
+
+**Demo cuối sprint:**
+
+| Hạng mục | Kết quả | Cách kiểm chứng |
+|---|---|---|
+| Đăng nhập 3 vai trò, mỗi vai trò thấy menu riêng | Đạt | `e2e/auth.spec.ts` (3 kịch bản × máy tính, điện thoại); Claude Code thử tay bằng tài khoản Admin |
+| Admin tạo môn học có chương và bài học | Đạt | `e2e/admin-flow.spec.ts`: tạo môn, chương, bài có video + văn bản + file PDF; file `.exe` bị từ chối |
+| Admin mở lớp và giao cho giảng viên | Đạt | Cùng kịch bản: mở lớp, đề thi cuối kỳ tự tạo ở trạng thái "Chưa mở" |
+| Khách thấy lớp đang nhận đăng ký | Đạt | Cùng kịch bản: khách tìm môn, xem chi tiết, thấy lớp, giảng viên, học phí, cọc, số chỗ; không thấy nội dung bài học |
+| PO / nhóm chạy thử | **Chưa có kết quả** | Chưa ai trong nhóm chạy |
+
+### 2. Đã hoàn thành
+
+| User story / việc | Sản phẩm | Test |
+|---|---|---|
+| T-1.1 Schema + migration | 9 bảng `user`, `admin`, `teacher`, `student`, `course`, `section`, `lesson`, `classes`, `exam` (cột cơ bản); 9 ràng buộc CHECK viết tay trong migration | Test tích hợp chạy trên CSDL thật |
+| T-1.2 Dữ liệu mẫu | `prisma/seed.ts`: 1 Admin, 3 giảng viên, 10 học viên, 4 môn (3 đang mở, 1 nháp), 11 chương, 4 lớp kèm đề thi; chạy lại không bị trùng; `npm run up` tự nạp | Chạy hai lần liên tiếp |
+| US-01, US-02 Đăng ký, đăng nhập / đăng xuất | `/register`, `/login`, Auth.js v5; lỗi đăng nhập là câu chung; tài khoản khoá bị chặn; đăng nhập xong về trang theo vai trò hoặc trang đang muốn vào | `accounts/service.test.ts`, `accounts/schemas.test.ts`, `e2e/auth.spec.ts` |
+| US-03 Phân quyền | `src/proxy.ts`, trang 403 (mã 403), `requireActor` ở mọi trang và server action, `assertRole` ở mọi service | `auth/roles.test.ts`, phần ForbiddenError trong các test service, `e2e/auth.spec.ts` |
+| US-05 Quản lý tài khoản | `/admin/users`: lọc vai trò, tìm kiếm, tạo giảng viên / Admin, sửa hệ số lương, khoá / mở khoá (có hộp xác nhận) | `accounts/service.test.ts`, `e2e/admin-flow.spec.ts` |
+| US-07 → US-09 Môn học, chương, bài học | `/admin/courses`, `/admin/courses/[id]`, sửa bài học; đổi thứ tự bằng nút ↑ ↓ (dùng được trên điện thoại) | `courses/service.test.ts` |
+| T-1.7 File đính kèm (NFR-05) | `src/server/files/storage.ts`; tối đa 10 MB; pdf, docx, pptx, zip, png, jpg; tải qua `/api/lessons/[id]/attachment` có kiểm tra quyền | `files/storage.test.ts`, `courses/service.test.ts` |
+| US-10, US-11 Danh mục và chi tiết | `/courses` (tìm, 9 môn / trang), `/courses/[id]` (không trả nội dung bài học về trình duyệt) | `courses/service.test.ts`, `e2e/admin-flow.spec.ts` |
+| US-12, US-29 Mở lớp, đề cuối kỳ | `/admin/classes`, `/admin/classes/new`, `/admin/classes/[id]`: mở lớp và tạo đề `DISABLED` trong một transaction; sửa lớp khi còn nhận đăng ký; đổi giảng viên | `classes/service.test.ts`, `classes/schemas.test.ts` |
+| US-13 Giảng viên xem lớp | `/teacher`, `/teacher/classes/[id]`; lớp của giảng viên khác trả 404 | `classes/service.test.ts`, `e2e/admin-flow.spec.ts` |
+| T-1.11 Test | 61 test Vitest (8 file, gồm test tích hợp với CSDL); 12 kịch bản Playwright × 2 cấu hình = 24 lượt | — |
+
+Kết quả kiểm tra ngày 23/11 (chưa commit): `npm run check` pass (lint 0 cảnh báo, typecheck, format, 61 / 61 test); `npm run build` thành công; `npm run test:e2e` 24 / 24 pass. CI đã thêm PostgreSQL và bước `prisma migrate deploy` nhưng **chưa chạy trên GitHub** vì chưa push.
+
+### 3. Chưa thực hiện
+
+| Việc | Lý do | Xử lý |
+|---|---|---|
+| Danh sách học viên trong lớp của giảng viên (US-13), số chỗ còn lại thật (US-11) | Chưa có bảng `study`, `enrollment` | TD-09, Sprint 2 |
+| Học viên tải file bài học | Chưa có quyền vào lớp | TD-10, Sprint 2 |
+| Nút "Đăng ký lớp" trên trang chi tiết môn học | Thuộc US-17 | Sprint 2; hiện hiện câu "đang được hoàn thiện" cho người đã đăng nhập |
+| Nhóm review, merge, PO nghiệm thu | Chưa commit | TD-08 |
+
+### 4. Thiếu sót
+
+- **Thứ tự chương / bài học đổi bằng nút ↑ ↓**, chưa kéo thả như wireframe 7.3 (wireframe cho phép nút ↑ ↓ trên điện thoại; trên máy tính cũng đang dùng nút).
+- **Danh mục môn học chưa có ảnh bìa**, mô tả ngắn cắt 3 dòng.
+- **Ngày khai giảng được kiểm tra không ở quá khứ**, nhưng chưa có quy định khoảng cách tối thiểu tới ngày khai giảng — chưa hỏi PO.
+- **Mở lớp cho môn đang ở trạng thái Nháp được phép** (chỉ chặn môn Ngừng). Requirement không nói rõ, Claude Code tự quyết định; lớp của môn nháp không hiện ở trang công khai.
+- **Xoá chương / bài học là xoá hẳn** (FR-2.2, FR-2.3 cho phép xoá). Từ Sprint 2, khi có `lesson_progress`, phải chặn xoá bài đã có người học (BR-19).
+- **Chưa thử trên điện thoại thật**, mới chạy cấu hình Pixel 7 của Playwright và xem giao diện ở khung hẹp trong trình duyệt của Claude Code.
+- **Auth.js đang là bản beta** (5.0.0-beta.32) — bản duy nhất hỗ trợ Next.js 16.
+
+### 5. Lỗi đã mắc và cách tránh
+
+| Lỗi | Hậu quả | Cách tránh từ nay |
+|---|---|---|
+| Lỗi trong sản phẩm, do test bắt được: ô tiền nhận "1500.5" rồi bỏ dấu chấm thành 15.005 ₫ | Có thể lưu sai học phí | Chỉ nhận dấu chấm ở vị trí phân cách hàng nghìn; có test cho trường hợp này |
+| Lỗi trong sản phẩm, do test bắt được: ngày giờ hiển thị "08:30 23/11/2026" (định dạng `vi-VN` để giờ trước ngày) | Sai NFR-11 | Ghép ngày giờ bằng `formatToParts`; có test |
+| Cài thêm thư viện làm mất mục thư viện gốc của rolldown trong `package-lock.json` (lỗi đã gặp ở S0) | Vitest không chạy; CI cũng sẽ hỏng | Sau mỗi lần thêm thư viện chạy ngay `npm run test`; khi lỗi thì xoá `node_modules` + `package-lock.json` rồi cài lại |
+| Xoá `node_modules` khi ổ hệ thống của máy PO chỉ còn khoảng 1 GB: lần cài lại hỏng giữa chừng vì bộ nhớ đệm npm (`~/.npm`, 2,6 GB) nằm trên ổ đó | Project tạm thời không có thư viện | Kiểm tra dung lượng trống (`df -h /`) trước khi cài lại; cài với `--cache /Volumes/MySSD/.npm-cache` |
+| Tạo thư mục có `[id]` bằng `mkdir` không đặt trong ngoặc kép trên zsh | Lệnh lỗi, phải tạo lại | Luôn đặt đường dẫn route động trong ngoặc kép |
+| Kịch bản E2E dùng `getByRole("alert")` trùng với vùng thông báo chuyển trang của Next; bấm lại `<summary>` làm đóng khối đang mở; chuyển trang khi đăng nhập chưa xong | 9 kịch bản thất bại ở lần chạy đầu | Dùng `formAlert()`, `openDetails()`, `logout()` trong `e2e/helpers.ts`; luôn chờ URL sau khi đăng nhập |
+| Chạy Playwright khi PO đang mở `npm run dev` | Next 16 không cho chạy hai dev server trong một thư mục | Hỏi hoặc chờ PO tắt dev server trước khi chạy `npm run test:e2e`; đã ghi vào README |
+
+### 6. Lưu ý cho Sprint 2
+
+- **Trước khi làm Sprint 2:** PO cho commit Sprint 1, nhóm review (TD-08); PO điền khoá Stripe test (TD-02).
+- Sửa `src/server/classes/counts.ts` để đếm học viên đã cọc / trả đủ từ bảng `study`; bổ sung danh sách học viên trong `teacherGetClass` (TD-09); cho học viên có quyền vào lớp tải file bài học (TD-10).
+- Chặn xoá bài học đã có `lesson_progress` (BR-19).
+- Mẫu viết service đã thống nhất: service nhận `actor`, gọi `assertRole`, kiểm tra bằng Zod, ghi nhiều bảng trong `db.$transaction`; action chỉ gọi `requireActor` rồi gọi service. Test tích hợp dùng `TestData` trong `src/test/factories.ts`.
+- Sprint 2 chỉ có 2 ngày (26 – 27/11) cho 34 SP, phần Stripe có rủi ro (R3): làm nút thanh toán giả lập trước.
 
 ---
 

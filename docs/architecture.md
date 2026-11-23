@@ -8,7 +8,7 @@
 
 Tài liệu này mô tả hệ thống được chia thành những phần nào, mỗi phần nằm ở đâu trong mã nguồn và các phần nói chuyện với nhau ra sao. Yêu cầu nghiệp vụ nằm ở tài liệu yêu cầu; chi tiết từng bảng nằm ở từ điển dữ liệu.
 
-> **Hiện trạng (sau Sprint 0):** mới có khung project, trang chủ, kiểm tra kết nối CSDL và bộ công cụ kiểm thử. Các phần đánh dấu ⬜ là **thiết kế dự kiến**, sẽ được xây ở các sprint sau và có thể được điều chỉnh khi làm. Phần đánh dấu ✅ đã có trong mã nguồn. Tài liệu này được cập nhật cuối mỗi sprint.
+> **Hiện trạng (sau Sprint 1, 23/11/2026):** đã có đăng nhập và phân quyền 3 vai trò, quản lý tài khoản, môn học / chương / bài học có file đính kèm, mở lớp kèm đề thi cuối kỳ, trang giảng viên; 9 / 27 bảng. Các phần đánh dấu ⬜ là **thiết kế dự kiến**, sẽ được xây ở các sprint sau và có thể được điều chỉnh khi làm. Phần đánh dấu ✅ đã có trong mã nguồn. Tài liệu này được cập nhật cuối mỗi sprint.
 
 ## Mục lục
 
@@ -106,8 +106,8 @@ flowchart TB
 |---|---|---|---|
 | Trình duyệt | React 19, Tailwind CSS 4, shadcn/ui | Hiển thị giao diện, xử lý tương tác (form, đồng hồ làm bài) | ✅ khung |
 | Ứng dụng | Next.js 16.4 (App Router), TypeScript, Node.js 22+ | Render trang, xử lý nghiệp vụ, kiểm tra quyền | ✅ khung |
-| Cơ sở dữ liệu | PostgreSQL 17 trong Docker | Lưu toàn bộ dữ liệu nghiệp vụ (27 bảng) | ✅ chạy, chưa có bảng |
-| Lưu file | Thư mục `uploads/` trên máy chạy | File đính kèm bài học, file đề và bài nộp quiz | ⬜ |
+| Cơ sở dữ liệu | PostgreSQL 17 trong Docker | Lưu toàn bộ dữ liệu nghiệp vụ (27 bảng) | ✅ 9 bảng (S1) |
+| Lưu file | Thư mục `uploads/` trên máy chạy | File đính kèm bài học, file đề và bài nộp quiz | ✅ file bài học (S1) |
 | Stripe | Stripe Checkout + webhook, chế độ test | Thu học phí | ⬜ Sprint 2 |
 
 ## 4. Các tầng bên trong ứng dụng
@@ -152,35 +152,38 @@ E-Learning Project/
 ├── src/
 │   ├── app/                        tầng giao diện: mỗi thư mục là một đường dẫn
 │   │   ├── layout.tsx              ✅ khung trang gốc, font, ngôn ngữ vi
-│   │   ├── page.tsx                ✅ trang chủ (hiện trạng thái hệ thống)
 │   │   ├── globals.css             ✅ Tailwind + biến màu shadcn/ui
 │   │   ├── api/
 │   │   │   ├── health/route.ts     ✅ kiểm tra sức khoẻ ứng dụng và CSDL
-│   │   │   ├── stripe/webhook/     ⬜ nhận kết quả thanh toán (S2)
-│   │   │   └── files/              ⬜ tải file có kiểm tra quyền (S1)
-│   │   ├── (public)/               ⬜ đăng nhập, đăng ký, danh mục môn học (S1)
-│   │   ├── student/                ⬜ khu vực học viên (S2 → S4)
-│   │   ├── teacher/                ⬜ khu vực giảng viên (S1 → S5)
-│   │   └── admin/                  ⬜ khu vực quản trị viên (S1 → S5)
+│   │   │   ├── auth/[...nextauth]/ ✅ Auth.js
+│   │   │   ├── lessons/[id]/attachment/ ✅ tải file bài học có kiểm tra quyền
+│   │   │   └── stripe/webhook/     ⬜ nhận kết quả thanh toán (S2)
+│   │   ├── (public)/               ✅ trang chủ, đăng nhập, đăng ký, 403, danh mục và chi tiết môn học
+│   │   ├── student/                ✅ khung; ⬜ môn học của tôi, học bài (S2 → S4)
+│   │   ├── teacher/                ✅ lớp của tôi (S1); ⬜ quiz, chấm bài, lương (S3 → S5)
+│   │   └── admin/                  ✅ tổng quan, tài khoản, môn học, lớp học (S1); ⬜ phần còn lại (S2 → S5)
 │   ├── components/
-│   │   ├── ui/                     ✅ component shadcn/ui (hiện có button)
-│   │   └── …                       ⬜ component dùng chung: menu, bảng, form
-│   ├── server/                     ⬜ tầng nghiệp vụ, mỗi phân hệ một thư mục
-│   │   ├── auth/                   ⬜ phiên đăng nhập, kiểm tra vai trò
-│   │   ├── accounts/  courses/  classes/  enrollments/  learning/
+│   │   ├── ui/                     ✅ component shadcn/ui: button, input, label, textarea
+│   │   └── …                       ✅ khung trang theo vai trò, bảng responsive, ô nhập có nhãn, nhãn trạng thái, phân trang
+│   ├── server/                     tầng nghiệp vụ, mỗi phân hệ một thư mục
+│   │   ├── auth/                   ✅ Auth.js, getActor / requireActor, assertRole
+│   │   ├── files/                  ✅ kiểm tra, lưu, đọc file trong uploads/
+│   │   ├── accounts/  courses/  classes/   ✅ (S1)
+│   │   ├── enrollments/  learning/
 │   │   └── questions/  exams/  attempts/  quizzes/  salary/
 │   ├── lib/
 │   │   ├── db.ts                   ✅ Prisma Client dùng chung
 │   │   ├── health.ts               ✅ truy vấn kiểm tra CSDL
 │   │   ├── format.ts               ✅ định dạng tiền VND, phần trăm (có test)
 │   │   └── utils.ts                ✅ tiện ích của shadcn/ui
+│   ├── test/factories.ts           ✅ tạo và dọn dữ liệu cho test tích hợp
 │   ├── generated/prisma/           mã Prisma tự sinh, không commit
-│   └── proxy.ts                    ⬜ chặn đường dẫn theo vai trò (S1)
+│   └── proxy.ts                    ✅ chặn đường dẫn theo vai trò
 ├── prisma/
-│   ├── schema.prisma               ✅ cấu hình; ⬜ 27 model thêm dần theo sprint
-│   ├── migrations/                 ⬜ lịch sử thay đổi CSDL
-│   └── seed.ts                     ✅ khung; ⬜ dữ liệu mẫu (S1)
-├── e2e/                            ✅ kịch bản Playwright (hiện có trang chủ)
+│   ├── schema.prisma               ✅ 9 / 27 model (S1), thêm dần theo sprint
+│   ├── migrations/                 ✅ lịch sử thay đổi CSDL (kèm ràng buộc CHECK viết tay)
+│   └── seed.ts                     ✅ dữ liệu mẫu: 1 Admin, 3 giảng viên, 10 học viên, 4 môn, 4 lớp
+├── e2e/                            ✅ kịch bản Playwright: đăng nhập, phân quyền, luồng Admin → khách → giảng viên
 ├── scripts/setup.mjs               ✅ chuẩn bị môi trường cho `npm run up`
 ├── uploads/                        file người dùng tải lên, không commit
 ├── docs/                           tài liệu
@@ -190,7 +193,7 @@ E-Learning Project/
 └── So_do_CSDL.drawio               ✅ sơ đồ CSDL (ERD v1.1)
 ```
 
-Bên trong mỗi thư mục phân hệ của `src/server/` ⬜:
+Bên trong mỗi thư mục phân hệ của `src/server/` (đã dùng từ S1):
 
 | File | Nội dung |
 |---|---|
@@ -286,10 +289,10 @@ Mọi thao tác ghi đều đi qua bốn bước theo thứ tự: **xác thực 
 
 | Lớp bảo vệ | Ở đâu | Làm gì | Trạng thái |
 |---|---|---|---|
-| Phiên đăng nhập | Auth.js, cookie HttpOnly | Xác định người dùng và vai trò; mật khẩu băm bằng bcrypt | ⬜ S1 |
-| Chặn theo khu vực | `src/proxy.ts` | Chưa đăng nhập → về `/login`; sai vai trò với `/admin`, `/teacher`, `/student` → trang 403 | ⬜ S1 |
-| Kiểm tra vai trò | Đầu mỗi server action, route handler, hàm truy vấn | Hàm dùng chung `requireRole(...)` trong `src/server/auth/` | ⬜ S1 |
-| Kiểm tra quyền trên dữ liệu | Trong service và truy vấn | Giảng viên chỉ thao tác trên lớp được phân công; học viên chỉ xem lớp đã được mở quyền và bài làm của mình | ⬜ từ S1 |
+| Phiên đăng nhập | Auth.js v5 (Credentials, phiên JWT 8 giờ), cookie HttpOnly | Xác định người dùng và vai trò; mật khẩu băm bằng bcrypt (`bcryptjs`, 10 vòng). `getActor()` đọc lại người dùng trong CSDL ở mỗi request nên tài khoản vừa bị khoá mất quyền ngay | ✅ S1 |
+| Chặn theo khu vực | `src/proxy.ts` | Chưa đăng nhập → về `/login?callbackUrl=…`; sai vai trò với `/admin`, `/teacher`, `/student` → trang 403 (mã 403) | ✅ S1 |
+| Kiểm tra vai trò | Trang và server action: `requireActor(...)`; service và truy vấn: `assertRole(actor, ...)` | Hàm dùng chung trong `src/server/auth/` | ✅ S1 |
+| Kiểm tra quyền trên dữ liệu | Trong service và truy vấn | Giảng viên chỉ thao tác trên lớp được phân công; học viên chỉ xem lớp đã được mở quyền và bài làm của mình | ✅ giảng viên (S1); ⬜ học viên (S2) |
 
 `proxy.ts` chỉ là lớp chặn sớm để điều hướng cho gọn; **quyết định cuối cùng luôn nằm ở tầng nghiệp vụ**, vì server action có thể bị gọi trực tiếp mà không đi qua trang (US-03, BR-20). Đáp án đúng không bao giờ được gửi về trình duyệt khi học viên đang làm bài (BR-24): truy vấn cho màn hình làm bài không chọn cột `is_correct`.
 
@@ -350,9 +353,9 @@ sequenceDiagram
 - Thanh toán giả lập đi cùng một hàm kích hoạt đơn, chỉ khác nguồn xác nhận.
 - Khoá Stripe nằm trong `.env`, chỉ dùng loại test (NFR-02).
 
-### 10.2 Lưu trữ file ⬜ Sprint 1
+### 10.2 Lưu trữ file ✅ Sprint 1
 
-File đính kèm bài học, file đề và bài nộp quiz được lưu trong thư mục `uploads/` với tên do hệ thống sinh; CSDL chỉ giữ đường dẫn. File **không** được phục vụ trực tiếp như file tĩnh: mọi lượt tải về đi qua một route handler để kiểm tra quyền trước. Dung lượng và định dạng được kiểm tra ở server (NFR-05).
+File đính kèm bài học, file đề và bài nộp quiz được lưu trong thư mục `uploads/` với tên do hệ thống sinh (`<uuid>__<tên gốc đã làm sạch>`); CSDL chỉ giữ đường dẫn tương đối. Đường dẫn thoát khỏi `uploads/` bị chặn. File **không** được phục vụ trực tiếp như file tĩnh: mọi lượt tải về đi qua một route handler để kiểm tra quyền trước (`/api/lessons/[id]/attachment`: Admin, giảng viên dạy lớp của môn; học viên từ S2). Dung lượng và định dạng được kiểm tra ở server (NFR-05).
 
 ## 11. Xử lý phụ thuộc thời gian
 
@@ -396,8 +399,8 @@ flowchart LR
 |---|---|---|---|
 | Tĩnh | ESLint, TypeScript, Prettier | Lỗi cú pháp, kiểu dữ liệu, định dạng | `npm run check` |
 | Đơn vị và tích hợp | Vitest | Hàm tiện ích, service, quy tắc nghiệp vụ, phân quyền | `npm run test` |
-| Đầu cuối | Playwright (máy tính và điện thoại) | Luồng chính và kịch bản nghiệm thu `AT-xx` trên trình duyệt | `npm run test:e2e` |
-| Tự động khi push | GitHub Actions | Lint, typecheck, format, unit test, build | ⬜ đã viết, chưa bật |
+| Đầu cuối | Playwright (máy tính và điện thoại) | Luồng chính và kịch bản nghiệm thu `AT-xx` trên trình duyệt; tự nạp dữ liệu mẫu trước và dọn dữ liệu `E2E…` sau khi chạy | `npm run test:e2e` |
+| Tự động khi push / mở PR, hoặc chạy bằng tay | GitHub Actions (có PostgreSQL để chạy test tích hợp; `workflow_dispatch` để chạy tay cho nhánh bất kỳ) | Lint, typecheck, format, migration, unit và integration test, build | ✅ bật từ 23/11 |
 
 ## 14. Các quyết định kiến trúc
 
@@ -413,3 +416,6 @@ flowchart LR
 | 8 | File lưu ở thư mục `uploads/` trên máy | Không cần dịch vụ lưu trữ khi chỉ chạy trên máy cá nhân | Phải đổi sang lưu trữ đám mây nếu triển khai online |
 | 9 | Không có tiến trình chạy nền; việc theo thời gian được tính khi đọc | Ít thành phần phải chạy và phải giải thích | Trạng thái lớp chỉ được cập nhật khi có người truy cập |
 | 10 | Kích hoạt đơn chỉ qua webhook của Stripe | Trình duyệt có thể đóng trước khi quay lại trang | Khi chạy trên máy cá nhân phải dùng Stripe CLI để chuyển tiếp webhook |
+| 11 | Auth.js v5 (bản beta 5.0.0-beta.32) với đăng nhập email + mật khẩu, phiên JWT | Bản duy nhất của Auth.js hỗ trợ Next.js 16; không cần bảng phiên trong CSDL | Là bản beta; phiên JWT không thu hồi được nên mỗi request đọc lại trạng thái tài khoản trong CSDL |
+| 12 | Service nhận `actor` làm tham số và tự gọi `assertRole` | Test được phân quyền bằng Vitest mà không cần trình duyệt hay cookie | Mỗi service phải nhớ gọi kiểm tra quyền |
+| 13 | Form trả lại dữ liệu vừa nhập trong kết quả action (`values`) | React 19 xoá trắng form sau mỗi lần gửi; không có trường mật khẩu trong dữ liệu trả lại | Thêm một bước trong mỗi form |
