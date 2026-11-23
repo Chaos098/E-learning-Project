@@ -3,13 +3,13 @@
 | Mục | Nội dung |
 |---|---|
 | Sản phẩm | Ứng dụng web học trực tuyến cho trung tâm đào tạo: môn học, lớp, đăng ký & thanh toán, quiz theo chương, thi cuối kỳ, lương giảng viên |
-| Yêu cầu | [docs/requirement.md](docs/requirement.md) (v1.1) |
+| Yêu cầu | [docs/requirement.md](docs/requirement.md) — tài liệu yêu cầu người dùng (URD) v1.2 |
 | Sơ đồ CSDL | [So_do_CSDL.drawio](So_do_CSDL.drawio) (ERD v1.1, 27 bảng) |
 | Phương pháp | Agile / Scrum, sprint ngắn **2 – 3 ngày** |
-| Hạn nộp | **01/12/2026** (Q-30) |
+| Hạn nộp | **06/12/2026** (Q-30, PO dời từ 01/12 sang 06/12 ngày 23/11) |
 | Nhóm | 4 thành viên + Claude Code (Planner, Coder, Tester, E2E) |
-| Sprint hiện tại | **Sprint 1 — Tài khoản, môn học & lớp học** (Sprint 0 đã xong, trừ việc bật CI) |
-| Cập nhật lần cuối | 14/11/2026 |
+| Sprint hiện tại | **Sprint 1 — Tài khoản, môn học & lớp học** (23/11 – 25/11; Sprint 0 đã xong, CI chờ push) |
+| Cập nhật lần cuối | 23/11/2026 |
 
 ---
 
@@ -19,34 +19,34 @@
 
 | Sprint | Thời gian | Mục tiêu | SP kế hoạch | SP xong | Trạng thái |
 |---|---|---|---:|---:|---|
-| S0 | 16/10 – 14/11 | Khởi động, chốt yêu cầu & môi trường | — | — | ✅ Xong, trừ T-0.13 ⛔ |
-| S1 | 15/11 – 17/11 | Tài khoản, môn học & lớp học | 43 | 0 | ⬜ Chưa bắt đầu |
-| S2 | 18/11 – 20/11 | Đăng ký, thanh toán & học tập | 34 | 0 | ⬜ Chưa bắt đầu |
-| S3 | 21/11 – 23/11 | Ngân hàng câu hỏi, đề thi, làm bài & chấm điểm | 44 | 0 | ⬜ Chưa bắt đầu |
-| S4 | 24/11 – 26/11 | Quiz theo chương & lương | 29 | 0 | ⬜ Chưa bắt đầu |
-| S5 | 27/11 – 28/11 | Các story Should & Could | 45 | 0 | ⬜ Chưa bắt đầu |
-| S6 | 29/11 – 30/11 | Hoàn thiện & bàn giao | — | — | ⬜ Chưa bắt đầu |
+| S0 | 16/10 – 14/11 | Khởi động, chốt yêu cầu & môi trường | — | — | ✅ Xong, trừ T-0.13 🔄 |
+| S1 | 23/11 – 25/11 | Tài khoản, môn học & lớp học | 43 | 0 | ⬜ Chưa bắt đầu |
+| S2 | 26/11 – 27/11 | Đăng ký, thanh toán & học tập | 34 | 0 | ⬜ Chưa bắt đầu |
+| S3 | 28/11 – 30/11 | Ngân hàng câu hỏi, đề thi, làm bài & chấm điểm | 44 | 0 | ⬜ Chưa bắt đầu |
+| S4 | 01/12 – 02/12 | Quiz theo chương & lương | 29 | 0 | ⬜ Chưa bắt đầu |
+| S5 | 03/12 – 04/12 | Các story Should & Could | 45 | 0 | ⬜ Chưa bắt đầu |
+| S6 | 05/12 – 06/12 | Hoàn thiện & bàn giao | — | — | ⬜ Chưa bắt đầu |
 | | | **Tổng** | **195** | **0** | |
 
-> **Hạn nộp 01/12/2026.** Toàn bộ 33 story **Must** (150 SP) nằm ở S1 → S4, xong trước ngày 26/11. S5 gom 17 story **Should / Could** (45 SP): làm được bao nhiêu thì làm, hết ngày 28/11 là **ngừng thêm tính năng**, phần chưa xong thì bỏ. Mốc ngày chỉ là trần; sprint nào xong sớm thì bắt đầu sprint sau ngay.
+> **Hạn nộp 06/12/2026.** Lịch xếp lại ngày 23/11 (TD-07): giữ nguyên toàn bộ 50 story, **195 SP**, không bớt story nào; chỉ dời mốc ngày. Toàn bộ 33 story **Must** (150 SP) nằm ở S1 → S4, xong trước hết ngày 02/12. S5 gom 17 story **Should / Could** (45 SP), hết ngày 04/12 là **ngừng thêm tính năng**. S6 (05 – 06/12) chỉ sửa lỗi và bàn giao, nộp trong ngày 06/12. Mốc ngày chỉ là trần; sprint nào xong sớm thì bắt đầu sprint sau ngay.
 
 ```mermaid
 gantt
-    title Lộ trình dự án E-Learning (hạn nộp 01/12/2026)
+    title Lộ trình dự án E-Learning (hạn nộp 06/12/2026)
     dateFormat YYYY-MM-DD
     axisFormat %d/%m
     section Khởi động
     S0 Khởi động & môi trường             :done, s0, 2026-11-13, 2d
     section Must
-    S1 Tài khoản, môn học, lớp            :s1, 2026-11-15, 3d
-    S2 Đăng ký, thanh toán, học tập       :s2, after s1, 3d
+    S1 Tài khoản, môn học, lớp            :s1, 2026-11-23, 3d
+    S2 Đăng ký, thanh toán, học tập       :s2, after s1, 2d
     S3 Câu hỏi, đề thi, làm bài, chấm     :s3, after s2, 3d
-    S4 Quiz & lương                       :s4, after s3, 3d
+    S4 Quiz & lương                       :s4, after s3, 2d
     section Should / Could
     S5 Story Should & Could               :s5, after s4, 2d
     section Bàn giao
     S6 Hoàn thiện & bàn giao              :s6, after s5, 2d
-    Nộp đồ án                             :milestone, 2026-12-01, 0d
+    Nộp đồ án                             :milestone, 2026-12-06, 0d
 ```
 
 ---
@@ -66,10 +66,11 @@ gantt
 
 ### 2.2 Mã số
 
-- **E1 → E10**: Epic, tức nhóm chức năng lớn (requirement.md mục 5).
+- **E1 → E10**: Epic, tức nhóm chức năng lớn (requirement.md mục 6).
 - **US-xx**: User story, định nghĩa và tiêu chí chấp nhận nằm trong requirement.md.
 - **T-x.y**: Việc kỹ thuật thứ *y* của Sprint *x*.
-- **BR-xx / NFR-xx / Q-xx**: Quy tắc nghiệp vụ / Yêu cầu phi chức năng / Câu hỏi (requirement.md).
+- **UR-xx / FR-m.n / AT-xx**: Yêu cầu người dùng / Chức năng hệ thống / Kịch bản nghiệm thu (requirement.md mục 4, 7, 12).
+- **BR-xx / NFR-xx / Q-xx**: Quy tắc nghiệp vụ / Yêu cầu phi chức năng / Câu hỏi (requirement.md mục 8, 9 và Phụ lục A).
 - **SP (story point)**: độ lớn tương đối của một user story theo dãy 1, 2, 3, 5, 8, 13.
 - **Ưu tiên MoSCoW**: Must (bắt buộc), Should (nên có), Could (có thì tốt).
 
@@ -96,6 +97,7 @@ Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`plann
 | Daily | Mỗi phiên làm việc với Claude Code | Chọn việc ⬜ → 🔄, làm, test, tick `[x]`, ghi nhật ký |
 | Sprint Review | Cuối sprint | Cả nhóm chạy demo theo mục "Demo cuối sprint", cập nhật SP xong ở mục 1 |
 | Retrospective | Sau Review | Ghi 3 ý vào mục 9: tốt / chưa tốt / cải tiến |
+| Báo cáo sprint | Sau Retrospective, **trước khi bắt đầu sprint kế tiếp** | Claude Code viết vào [docs/sprint-reports.md](docs/sprint-reports.md): đã hoàn thành, chưa thực hiện, thiếu sót, lỗi đã mắc; cập nhật bảng việc tồn |
 
 **Một vòng làm một user story:**
 
@@ -219,13 +221,13 @@ Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`plann
 - [x] T-0.10 Tạo 4 agent Claude Code trong `.claude/agents/`: Planner, Coder, Tester, E2E
 - [x] T-0.11 Khởi tạo project Next.js 16 + TypeScript, shadcn/ui, Vitest, Playwright, cấu trúc thư mục, lint + format
 - [x] T-0.12 Docker Compose cho PostgreSQL, Prisma 7, `.env.example` (khoá Stripe test do PO điền vào `.env` trước Sprint 2)
-- [ ] T-0.13 ⛔ CI trên GitHub Actions: lint, typecheck, format, unit test, build — file đã viết ở `.github/workflows-pending/ci.yml` nhưng **chưa bật**: token GitHub của PO thiếu quyền `workflow` nên không push được vào `.github/workflows/`
+- [ ] T-0.13 🔄 CI trên GitHub Actions: lint, typecheck, format, unit test, build — 23/11: PO đã cấp token mới (lưu ở `docs/secrets/`, không commit), file đã chuyển vào `.github/workflows/ci.yml`; **còn chờ PO cho push** và xem lần chạy CI đầu tiên
 - [x] T-0.14 Wireframe các màn hình chính → `docs/ui/wireframes.md`
 - [x] T-0.15 Commit và push bản nền lên GitHub
 
 **Demo cuối sprint:** Chạy `npm run up` là có trang chủ hiển thị "Cơ sở dữ liệu: Đã kết nối"; 4 agent có trong `.claude/agents/`.
 
-### Sprint 1 — Tài khoản, môn học & lớp học (15/11 – 17/11) · 43 SP
+### Sprint 1 — Tài khoản, môn học & lớp học (23/11 – 25/11) · 43 SP
 
 **Mục tiêu:** Ba vai trò đăng nhập được; Admin xây xong môn học, mở lớp và phân công giảng viên; khách xem được.
 **User story:** US-01, US-02, US-03, US-05, US-07, US-08, US-09, US-10, US-11, US-12, US-13, US-29
@@ -244,7 +246,7 @@ Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`plann
 
 **Demo cuối sprint:** Đăng nhập bằng 3 vai trò, mỗi vai trò thấy menu riêng; Admin tạo môn học có chương và bài học, mở lớp và giao cho giảng viên; khách thấy lớp đang nhận đăng ký.
 
-### Sprint 2 — Đăng ký, thanh toán & học tập (18/11 – 20/11) · 34 SP
+### Sprint 2 — Đăng ký, thanh toán & học tập (26/11 – 27/11) · 34 SP
 
 **Mục tiêu:** Học viên đăng ký nhiều lớp trong một đơn, cọc hoặc trả đủ, vào lớp học bài; lớp mở hoặc huỷ đúng quy tắc sĩ số.
 **User story:** US-16, US-17, US-18, US-19, US-23, US-24
@@ -260,7 +262,7 @@ Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`plann
 
 **Demo cuối sprint:** Học viên chọn 2 lớp, cọc bằng thẻ test của Stripe, vào lớp học 3 bài và thấy tiến độ tăng; lớp không đủ sĩ số bị huỷ và hoàn tiền.
 
-### Sprint 3 — Ngân hàng câu hỏi, đề thi, làm bài & chấm điểm (21/11 – 23/11) · 44 SP
+### Sprint 3 — Ngân hàng câu hỏi, đề thi, làm bài & chấm điểm (28/11 – 30/11) · 44 SP
 
 **Mục tiêu:** Học viên thi trọn một đề cuối kỳ do Admin random; giảng viên chấm tự luận và công bố điểm.
 **User story:** US-26, US-27, US-30, US-31, US-33, US-34, US-35, US-36, US-37, US-38
@@ -276,7 +278,7 @@ Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`plann
 
 **Demo cuối sprint:** Giảng viên soạn 30 câu; Admin lên lịch và random đề 20 câu; học viên đã trả đủ làm bài, giảng viên chấm tự luận và công bố; học viên thấy điểm và đáp án đúng.
 
-### Sprint 4 — Quiz theo chương & lương (24/11 – 26/11) · 29 SP
+### Sprint 4 — Quiz theo chương & lương (01/12 – 02/12) · 29 SP
 
 **Mục tiêu:** Mỗi chương có quiz dạng trắc nghiệm hoặc nộp file; Admin tính được lương giảng viên.
 **User story:** US-41, US-42, US-43, US-44, US-45
@@ -291,9 +293,9 @@ Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`plann
 
 **Demo cuối sprint:** Học viên làm quiz trắc nghiệm 2 lần và nộp file cho một quiz khác; giảng viên chấm bài nộp; Admin tính lương tháng cho 3 giảng viên.
 
-### Sprint 5 — Các story Should & Could (27/11 – 28/11) · 45 SP
+### Sprint 5 — Các story Should & Could (03/12 – 04/12) · 45 SP
 
-**Mục tiêu:** Bổ sung các chức năng nên có theo thứ tự ưu tiên; hết ngày 28/11 thì ngừng, phần chưa xong được bỏ.
+**Mục tiêu:** Bổ sung toàn bộ chức năng nên có và có thì tốt theo thứ tự ưu tiên; hết ngày 04/12 thì ngừng thêm tính năng.
 **User story:** US-04, US-14, US-15, US-20, US-21, US-22, US-25, US-32, US-39, US-46, US-47, US-48, US-50 (Should, 33 SP) · US-06, US-28, US-40, US-49 (Could, 12 SP)
 
 - [ ] T-5.1 Schema: `CLASS_DECLINE_REQUEST`, `QUIZ_FEEDBACK`
@@ -308,9 +310,9 @@ Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`plann
 
 **Demo cuối sprint:** Giảng viên xin không dạy, Admin duyệt và giao lớp cho người khác; Admin duyệt bảng lương; giảng viên báo sai sót quiz và Admin sửa điểm.
 
-### Sprint 6 — Hoàn thiện & bàn giao (29/11 – 30/11)
+### Sprint 6 — Hoàn thiện & bàn giao (05/12 – 06/12)
 
-**Mục tiêu:** Không thêm tính năng; sản phẩm ổn định trên máy cá nhân, tài liệu đầy đủ, sẵn sàng nộp ngày 01/12.
+**Mục tiêu:** Không thêm tính năng; sản phẩm ổn định trên máy cá nhân, tài liệu đầy đủ, nộp trong ngày 06/12.
 
 - [ ] T-6.1 Rà soát yêu cầu phi chức năng: bảo mật, file tải lên, responsive, hiệu năng
 - [ ] T-6.2 Sửa lỗi tồn đọng
@@ -327,7 +329,9 @@ So_do_CSDL.drawio            ← ERD v1.1 (chính thức)
 CLAUDE.md                    ← quy ước cho Claude Code
 .claude/agents/              ← 4 agent: planner, coder, tester, e2e
 docs/
-├── requirement.md           ← đặc tả yêu cầu v1.1
+├── sprint-reports.md        ← báo cáo sprint: kết quả, thiếu sót, lỗi, việc tồn
+├── requirement.md           ← tài liệu yêu cầu người dùng (URD) v1.2
+├── architecture.md          ← cấu trúc hệ thống: thành phần, tầng, phân hệ, luồng xử lý
 ├── database/                ← từ điển dữ liệu (data-dictionary.md)
 ├── ui/                      ← wireframe (wireframes.md)
 └── report/                  ← báo cáo, slide đồ án (T-6.5)
@@ -339,12 +343,12 @@ docs/
 
 | Mã | Rủi ro | Ảnh hưởng | Cách giảm |
 |---|---|---|---|
-| R1 | Hạn nộp 01/12/2026 rất gần: 195 SP trong 16 ngày | Không kịp review và chạy thử | Must xong trước 26/11; ngừng thêm tính năng sau 28/11; bỏ story Could rồi Should nếu trễ |
+| R1 | Hạn nộp 06/12/2026 rất gần: giữ đủ 195 SP trong 14 ngày (23/11 – 06/12), S2, S4, S5 chỉ có 2 ngày | Không kịp review và chạy thử | Must xong trước hết 02/12; ngừng thêm tính năng sau 04/12; sprint nào trễ thì báo PO ngay để PO quyết định, không tự bỏ story |
 | R2 | Phạm vi lớn: 195 SP, 27 bảng; nhóm review không kịp tốc độ viết code | Lỗi ẩn lọt tới buổi bảo vệ | Làm Must trước; S5 gom story Should / Could để có thể cắt; mỗi sprint có demo để nhóm chạy thử |
 | R3 | Tích hợp Stripe (webhook, môi trường test) gặp khó | Trễ Sprint 2 | Có nút thanh toán giả lập dự phòng |
 | R4 | Sơ đồ CSDL đổi giữa chừng | Lỗi dữ liệu, phải làm lại | Mọi thay đổi đi qua migration; cập nhật `So_do_CSDL.drawio` cùng lúc |
 | R5 | Code do AI sinh ra khó kiểm soát | Lỗi ẩn | Chia việc nhỏ; Tester và E2E chạy trước khi merge; thành viên nhóm review |
-| R6 | PO đổi yêu cầu đã chốt (Q-01 → Q-38, G-1 → G-5) giữa chừng | Phải sửa story đã làm, trễ hạn 01/12 | Thay đổi mới chỉ nhận vào Sprint 5 trở đi, trừ lỗi nghiêm trọng |
+| R6 | PO đổi yêu cầu đã chốt (Q-01 → Q-38, G-1 → G-5) giữa chừng | Phải sửa story đã làm, trễ hạn 06/12 | Thay đổi mới chỉ nhận vào Sprint 5 trở đi, trừ lỗi nghiêm trọng |
 | R7 | File chưa commit bị mất | Mất công sức | Commit và push sau mỗi phiên làm việc |
 
 ---
@@ -368,3 +372,7 @@ docs/
 | 13/11/2026 | PO trả lời Q-27 → Q-38 (hạn nộp 01/12/2026; demo chỉ chạy trên máy cá nhân). Xoá `So_do_CSDL_de_xuat.drawio` và các file `.bkp`, thêm `.gitignore`, commit bản nền. |
 | 13/11/2026 | Theo câu trả lời Q-27 → Q-38: ERD v1.1 (bỏ `ANSWER_CHOICE`, thêm `QUIZ_FEEDBACK`, mở rộng cụm QUIZ), requirement v1.1 (50 user story, thêm US-50), backlog 195 SP xếp lại thành S1 → S6 kết thúc ngày 30/11; bỏ triển khai online. |
 | 14/11/2026 | Xong Sprint 0: khung Next.js 16 + Prisma 7 + PostgreSQL (Docker, cổng 5440), shadcn/ui, Vitest, Playwright; từ điển dữ liệu, wireframe, `CLAUDE.md`, 4 agent. Không bật Cache Components của Next.js để đơn giản hoá việc render theo phiên đăng nhập. CI đã viết nhưng chưa bật vì token GitHub thiếu quyền `workflow` (T-0.13). |
+| 16/11/2026 | Thêm quy định viết báo cáo sprint vào `docs/CLAUDE.md` sau mỗi sprint; viết báo cáo Sprint 0. `docs/requirement.md` lên v1.2: sắp xếp lại thành tài liệu yêu cầu người dùng (URD) với 22 UR, 72 chức năng hệ thống, tiêu chí nghiệm thu AT-01 → AT-08, ma trận truy vết; thêm NFR-10 → NFR-12. Sprint 1 chưa bắt đầu, trễ 1 ngày so với lịch. |
+| 16/11/2026 | Thêm `docs/architecture.md` mô tả cấu trúc hệ thống (thành phần chạy, các tầng, cấu trúc thư mục, 10 phân hệ, luồng xử lý, quyết định kiến trúc). |
+| 23/11/2026 | Đổi tên `docs/CLAUDE.md` thành `docs/sprint-reports.md`: tránh trùng tên với `CLAUDE.md` ở gốc, và tránh để Claude Code tự nạp nhật ký sprint như một file chỉ dẫn. |
+| 23/11/2026 | Xử lý TD-07: PO dời hạn nộp từ 01/12 sang **06/12/2026**, giữ nguyên 195 SP. Xếp lại lịch: S1 23 – 25/11, S2 26 – 27/11, S3 28 – 30/11, S4 01 – 02/12, S5 03 – 04/12, S6 05 – 06/12. TD-01: PO cấp token GitHub mới, chuyển `ci.yml` vào `.github/workflows/` (chờ PO cho push). |

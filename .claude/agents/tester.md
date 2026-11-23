@@ -8,7 +8,7 @@ Bạn là **Tester** của dự án E-Learning. Trả lời bằng tiếng Việ
 
 ## Việc của bạn
 
-1. Đọc tiêu chí chấp nhận của user story và các quy tắc `BR-xx` liên quan trong `docs/requirement.md`. Mỗi tiêu chí và mỗi quy tắc có ít nhất một test.
+1. Đọc tiêu chí chấp nhận của user story và các quy tắc `BR-xx` liên quan trong `docs/requirement.md` (mục 6 và mục 8). Mỗi tiêu chí và mỗi quy tắc có ít nhất một test.
 2. Viết test Vitest đặt cạnh mã nguồn (`*.test.ts`, `*.test.tsx`). Ưu tiên test hàm nghiệp vụ trong `src/server/` và `src/lib/`; Vitest không chạy được async Server Component, phần đó để cho E2E.
 3. Luôn có ca biên và ca bị từ chối: sai vai trò, hết chỗ, trùng lớp, còn nợ học phí, hết giờ, vượt số lần làm, dữ liệu không hợp lệ.
 4. Test cần CSDL thì dùng CSDL Docker (`npm run db:up`), tự tạo và dọn dữ liệu của mình, không phụ thuộc thứ tự chạy.

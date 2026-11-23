@@ -2,14 +2,16 @@
 
 # E-Learning — quy ước cho Claude Code
 
-Đồ án môn CNPM: ứng dụng web học trực tuyến cho trung tâm đào tạo. **Hạn nộp 01/12/2026.** Claude Code viết toàn bộ code; nhóm 4 người review và chạy thử. Trả lời và viết tài liệu bằng **tiếng Việt**.
+Đồ án môn CNPM: ứng dụng web học trực tuyến cho trung tâm đào tạo. **Hạn nộp 06/12/2026.** Claude Code viết toàn bộ code; nhóm 4 người review và chạy thử. Trả lời và viết tài liệu bằng **tiếng Việt**.
 
 ## Đọc trước khi làm
 
 1. [PLAN.md](PLAN.md) — sprint hiện tại, backlog, việc `T-x.y`, Definition of Done.
-2. [docs/requirement.md](docs/requirement.md) — user story (`US-xx`), quy tắc nghiệp vụ (`BR-xx`), yêu cầu phi chức năng (`NFR-xx`). Câu trả lời của PO ở mục 9 có giá trị cao nhất.
-3. [docs/database/data-dictionary.md](docs/database/data-dictionary.md) — kiểu dữ liệu, ràng buộc, chỉ mục của 27 bảng.
-4. [docs/ui/wireframes.md](docs/ui/wireframes.md) — sơ đồ màn hình và bố cục.
+2. [docs/requirement.md](docs/requirement.md) — tài liệu yêu cầu người dùng (URD): yêu cầu người dùng (`UR-xx`), user story (`US-xx`, mục 6), chức năng hệ thống (`FR-m.n`, mục 7), quy tắc nghiệp vụ (`BR-xx`), yêu cầu phi chức năng (`NFR-xx`), kịch bản nghiệm thu (`AT-xx`). Câu trả lời của PO ở Phụ lục A có giá trị cao nhất.
+3. [docs/architecture.md](docs/architecture.md) — cấu trúc hệ thống: các tầng, phân hệ, cấu trúc thư mục, quy tắc phụ thuộc. Cập nhật file này cuối mỗi sprint (đổi ⬜ thành ✅, sửa phần thiết kế đã thay đổi).
+4. [docs/database/data-dictionary.md](docs/database/data-dictionary.md) — kiểu dữ liệu, ràng buộc, chỉ mục của 27 bảng.
+5. [docs/ui/wireframes.md](docs/ui/wireframes.md) — sơ đồ màn hình và bố cục.
+6. [docs/sprint-reports.md](docs/sprint-reports.md) — nhật ký sprint: việc tồn đang mở, thiếu sót và lỗi đã mắc ở các sprint trước.
 
 Nguồn chuẩn của CSDL là `So_do_CSDL.drawio` (ERD v1.1). Đổi CSDL thì sửa **cùng lúc**: sơ đồ, từ điển dữ liệu, `prisma/schema.prisma` và migration. File `.drawio` là XML thường, sửa bằng script; PO hay mở file này trong draw.io nên phải nhắc PO đóng và mở lại sau khi sửa.
 
@@ -63,3 +65,4 @@ uploads/            file người dùng tải lên (không commit)
 2. Mỗi user story một nhánh `feature/us-xx-ten-ngan`; commit theo Conventional Commits bằng tiếng Anh, ví dụ `feat(enrollment): create enrollment with multiple classes`.
 3. Xong việc: `npm run check` và E2E liên quan phải pass, tick `[x]` và cập nhật trạng thái, số SP trong PLAN.md.
 4. Chỉ commit, push hoặc merge vào `main` khi PO yêu cầu.
+5. **Kết thúc mỗi sprint, trước khi bắt đầu sprint kế tiếp:** viết báo cáo sprint vào [docs/sprint-reports.md](docs/sprint-reports.md) theo mẫu ở cuối file đó — đã hoàn thành, chưa thực hiện, thiếu sót, lỗi đã mắc — và cập nhật bảng việc tồn. Chưa có báo cáo của sprint trước thì chưa làm sprint sau.

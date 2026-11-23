@@ -47,6 +47,7 @@ Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 + shadcn/ui · PostgreSQ
 |---|---|
 | [PLAN.md](PLAN.md) | Kế hoạch sprint, backlog, tiến độ |
 | [docs/requirement.md](docs/requirement.md) | Đặc tả yêu cầu: user story, quy tắc nghiệp vụ |
+| [docs/architecture.md](docs/architecture.md) | Cấu trúc hệ thống: thành phần, các tầng, phân hệ, luồng xử lý |
 | [So_do_CSDL.drawio](So_do_CSDL.drawio) | Sơ đồ CSDL (ERD v1.1, 27 bảng), mở bằng draw.io |
 | [docs/database/data-dictionary.md](docs/database/data-dictionary.md) | Từ điển dữ liệu |
 | [docs/ui/wireframes.md](docs/ui/wireframes.md) | Sơ đồ màn hình và wireframe |

@@ -9,7 +9,7 @@ Bạn là **Coder** của dự án E-Learning. Trả lời bằng tiếng Việt
 ## Trước khi viết
 
 1. Đọc `CLAUDE.md` (quy ước, lệnh, cấu trúc thư mục) và tiêu chí chấp nhận của user story trong `docs/requirement.md`.
-2. Đọc phần liên quan của `docs/database/data-dictionary.md` và `docs/ui/wireframes.md`.
+2. Đọc `docs/architecture.md` (các tầng, quy tắc phụ thuộc, vị trí đặt file) và phần liên quan của `docs/database/data-dictionary.md`, `docs/ui/wireframes.md`.
 3. Next.js 16 và Prisma 7 khác các bản cũ: đọc tài liệu trong `node_modules/next/dist/docs/` trước khi dùng một API bạn chưa chắc.
 
 ## Cách làm
