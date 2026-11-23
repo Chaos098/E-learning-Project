@@ -18,6 +18,10 @@ next-env.d.ts
 # prisma
 /src/generated/
 
+# khoá bí mật trong tài liệu (chỉ commit README.md)
+/docs/secrets/*
+!/docs/secrets/README.md
+
 # env files (chỉ commit .env.example)
 .env*
 !.env.example

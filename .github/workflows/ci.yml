@@ -1,4 +1,3 @@
-# Chưa bật: chuyển file này vào .github/workflows/ khi token GitHub có quyền `workflow`.
 name: CI
 
 on:
