@@ -23,7 +23,7 @@ File này ghi lại **kết quả thật** của từng sprint: việc đã xong
 | TD-05 | Chưa có thành viên nhóm nào review Sprint 0 (Definition of Done yêu cầu) | S0 | Trước khi merge Sprint 1 | ⬜ Chờ nhóm |
 | TD-06 | `npm audit` báo 7 lỗ hổng mức trung bình trong thư viện phụ thuộc, chưa xem xét | S0 | Sprint 6 | ⬜ 23/11: còn 7 lỗ hổng (4 trung bình, 3 cao) sau khi cài lại thư viện |
 | TD-07 | Lịch đang trễ: Sprint 1 dự kiến 15 – 17/11 nhưng tới 16/11 chưa bắt đầu | S0 | Ngay | ✅ 23/11: PO dời hạn nộp sang 06/12/2026, giữ đủ 195 SP; lịch mới S1 23 – 25/11 → S6 05 – 06/12 trong PLAN.md |
-| TD-08 | Sprint 1 chưa commit và chưa được nhóm review: toàn bộ thay đổi nằm trên nhánh `feature/sprint-1` (chưa commit), chưa merge vào `main` | S1 | Trước khi bắt đầu Sprint 2 | ⬜ Chờ PO |
+| TD-08 | Sprint 1 chưa commit và chưa được nhóm review: toàn bộ thay đổi nằm trên nhánh `feature/sprint-1` (chưa commit), chưa merge vào `main` | S1 | Trước khi bắt đầu Sprint 2 | 🔄 23/11: đã commit và push nhánh `feature/sprint-1` (5 commit, `3e49578` → `be91e39`); chờ nhóm review và merge vào `main` |
 | TD-09 | US-13 và US-11 phụ thuộc Sprint 2: giảng viên chưa thấy học viên trong lớp, số chỗ còn lại đang bằng sĩ số tối đa (chưa có bảng `study` / `enrollment`). Chỗ cần sửa: `src/server/classes/counts.ts` và `teacherGetClass` | S1 | Sprint 2 (T-2.1) | ⬜ |
 | TD-10 | Học viên chưa tải được file đính kèm bài học (`canDownloadLessonAttachment` trả `false` cho học viên) vì chưa có quyền vào lớp | S1 | Sprint 2 (T-2.5) | ⬜ |
 
