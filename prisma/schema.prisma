@@ -1,6 +1,7 @@
 // Prisma schema của dự án E-Learning.
 // Nguồn chuẩn của CSDL: So_do_CSDL.drawio (ERD v1.1) và docs/database/data-dictionary.md.
-// Các model được thêm dần theo từng sprint (xem PLAN.md).
+// Các model được thêm dần theo từng sprint (xem PLAN.md và mục 5 của từ điển dữ liệu).
+// Ràng buộc CHECK không khai báo được trong Prisma nên được viết tay trong migration.
 
 generator client {
   provider = "prisma-client"
@@ -9,4 +10,193 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+}
+
+// ---------- Kiểu liệt kê ----------
+
+enum UserRole {
+  ADMIN
+  TEACHER
+  STUDENT
+
+  @@map("user_role")
+}
+
+enum UserStatus {
+  ACTIVE
+  LOCKED
+
+  @@map("user_status")
+}
+
+enum CourseStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+
+  @@map("course_status")
+}
+
+enum ClassStatus {
+  UPCOMING
+  ONGOING
+  FINISHED
+  CANCELLED
+
+  @@map("class_status")
+}
+
+enum ExamStatus {
+  DISABLED
+  SCHEDULED
+  OPEN
+  CLOSED
+
+  @@map("exam_status")
+}
+
+// ---------- 2.1 Người dùng ----------
+
+model User {
+  id          Int        @id @default(autoincrement()) @map("user_id")
+  email       String     @unique @db.VarChar(255)
+  hashedPwd   String     @map("hashed_pwd") @db.VarChar(255)
+  name        String     @db.VarChar(100)
+  role        UserRole
+  status      UserStatus @default(ACTIVE)
+  dateCreated DateTime   @default(now()) @map("date_created") @db.Timestamptz(6)
+
+  admin   Admin?
+  teacher Teacher?
+  student Student?
+
+  @@index([role])
+  @@map("user")
+}
+
+model Admin {
+  userId Int  @id @map("user_id")
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  courses Course[]
+  classes Class[]
+  exams   Exam[]
+
+  @@map("admin")
+}
+
+model Teacher {
+  userId            Int     @id @map("user_id")
+  salaryCoefficient Decimal @default(1.00) @map("salary_coefficient") @db.Decimal(4, 2)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  classes Class[]
+
+  @@map("teacher")
+}
+
+model Student {
+  userId Int  @id @map("user_id")
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("student")
+}
+
+// ---------- 2.2 Môn học ----------
+
+model Course {
+  id          Int          @id @default(autoincrement()) @map("course_id")
+  adminId     Int          @map("admin_id")
+  name        String       @map("course_name") @db.VarChar(200)
+  description String?
+  status      CourseStatus @default(DRAFT) @map("course_status")
+  dateCreated DateTime     @default(now()) @map("course_date_created") @db.Timestamptz(6)
+  dateEnd     DateTime?    @map("course_date_end") @db.Date
+
+  admin    Admin     @relation(fields: [adminId], references: [userId], onDelete: Restrict)
+  sections Section[]
+  classes  Class[]
+
+  @@index([adminId])
+  @@index([status])
+  @@index([name])
+  @@map("course")
+}
+
+model Section {
+  id          Int     @id @default(autoincrement()) @map("section_id")
+  courseId    Int     @map("course_id")
+  name        String  @map("section_name") @db.VarChar(200)
+  description String?
+  orderNo     Int     @map("order_no")
+
+  course  Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons Lesson[]
+
+  @@index([courseId, orderNo])
+  @@map("section")
+}
+
+model Lesson {
+  id            Int     @id @default(autoincrement()) @map("lesson_id")
+  sectionId     Int     @map("section_id")
+  title         String  @db.VarChar(200)
+  description   String?
+  videoUrl      String? @map("video_url") @db.VarChar(500)
+  content       String?
+  attachmentUrl String? @map("attachment_url") @db.VarChar(500)
+  orderNo       Int     @map("order_no")
+
+  section Section @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@index([sectionId, orderNo])
+  @@map("lesson")
+}
+
+// ---------- 2.3 Lớp học ----------
+
+model Class {
+  id            Int         @id @default(autoincrement()) @map("class_id")
+  courseId      Int         @map("course_id")
+  teacherId     Int         @map("teacher_id")
+  adminId       Int         @map("admin_id")
+  name          String      @map("class_name") @db.VarChar(100)
+  status        ClassStatus @default(UPCOMING)
+  tuitionFee    Int         @map("tuition_fee")
+  depositAmount Int         @map("deposit_amount")
+  minStudents   Int         @map("min_students")
+  maxStudents   Int         @map("max_students")
+  startDate     DateTime    @map("start_date") @db.Date
+  endDate       DateTime    @map("end_date") @db.Date
+  dateCreated   DateTime    @default(now()) @map("date_class_created") @db.Timestamptz(6)
+
+  course  Course  @relation(fields: [courseId], references: [id], onDelete: Restrict)
+  teacher Teacher @relation(fields: [teacherId], references: [userId], onDelete: Restrict)
+  admin   Admin   @relation(fields: [adminId], references: [userId], onDelete: Restrict)
+  exam    Exam?
+
+  @@index([courseId])
+  @@index([teacherId])
+  @@index([adminId])
+  @@index([status, startDate])
+  @@map("classes")
+}
+
+// ---------- 2.5 Đề thi cuối kỳ (S1: thông tin cơ bản; S3 bổ sung cột lịch thi) ----------
+
+model Exam {
+  id          Int        @id @default(autoincrement()) @map("exam_id")
+  classId     Int        @unique @map("class_id")
+  adminId     Int        @map("admin_id")
+  name        String?    @map("exam_name") @db.VarChar(200)
+  description String?
+  maxAttempts Int        @default(1) @map("max_attempts")
+  status      ExamStatus @default(DISABLED)
+  dateCreated DateTime   @default(now()) @map("date_created") @db.Timestamptz(6)
+
+  class Class @relation(fields: [classId], references: [id], onDelete: Restrict)
+  admin Admin @relation(fields: [adminId], references: [userId], onDelete: Restrict)
+
+  @@index([adminId])
+  @@map("exam")
 }
