@@ -400,7 +400,7 @@ flowchart LR
 | Tĩnh | ESLint, TypeScript, Prettier | Lỗi cú pháp, kiểu dữ liệu, định dạng | `npm run check` |
 | Đơn vị và tích hợp | Vitest | Hàm tiện ích, service, quy tắc nghiệp vụ, phân quyền | `npm run test` |
 | Đầu cuối | Playwright (máy tính và điện thoại) | Luồng chính và kịch bản nghiệm thu `AT-xx` trên trình duyệt; tự nạp dữ liệu mẫu trước và dọn dữ liệu `E2E…` sau khi chạy | `npm run test:e2e` |
-| Tự động khi push | GitHub Actions (có PostgreSQL để chạy test tích hợp) | Lint, typecheck, format, migration, unit và integration test, build | ✅ bật từ 23/11 |
+| Tự động khi push / mở PR, hoặc chạy bằng tay | GitHub Actions (có PostgreSQL để chạy test tích hợp; `workflow_dispatch` để chạy tay cho nhánh bất kỳ) | Lint, typecheck, format, migration, unit và integration test, build | ✅ bật từ 23/11 |
 
 ## 14. Các quyết định kiến trúc
 

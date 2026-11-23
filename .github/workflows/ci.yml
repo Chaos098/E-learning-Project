@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Chạy bằng tay cho một nhánh bất kỳ: nút "Run workflow" ở tab Actions,
+  # hoặc `gh workflow run CI --ref <tên-nhánh>`.
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.ref }}

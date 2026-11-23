@@ -47,6 +47,18 @@ npm run dev
 | `npm run db:studio` | Xem dữ liệu bằng Prisma Studio |
 | `npm run db:down` | Tắt PostgreSQL |
 
+## CI trên GitHub Actions
+
+File [.github/workflows/ci.yml](.github/workflows/ci.yml) chạy: PostgreSQL, migration, lint, typecheck, kiểm tra format, Vitest, build. Kịch bản Playwright chỉ chạy trên máy.
+
+| Khi nào | CI chạy |
+|---|---|
+| Mở PR hoặc push thêm commit vào nhánh đang có PR | Tự động |
+| Push hoặc merge vào `main` | Tự động |
+| Nhánh bất kỳ, khi cần | Bằng tay: nút **Run workflow** ở tab Actions, hoặc `gh workflow run CI --ref <tên-nhánh>` |
+
+Xem kết quả: `gh pr checks`, `gh run list`, `gh run watch`. CI lỗi: `gh run view --log-failed`, sửa rồi chạy `npm run check && npm run build` trên máy trước khi push lại.
+
 ## Công nghệ
 
 Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 + shadcn/ui · PostgreSQL 17 · Prisma 7 · Auth.js v5 · Zod · Vitest · Playwright · Stripe (chế độ test)
