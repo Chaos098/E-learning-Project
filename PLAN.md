@@ -8,18 +8,18 @@
 | Phương pháp | Agile / Scrum, sprint ngắn **2 – 3 ngày** |
 | Hạn nộp | **06/12/2026** (Q-30, PO dời từ 01/12 sang 06/12 ngày 23/11) |
 | Nhóm | 4 thành viên + Claude Code (Planner, Coder, Tester, E2E) |
-| Sprint hiện tại | **Sprint 1 — Tài khoản, môn học & lớp học** (23/11 – 25/11; Sprint 0 đã xong, CI chờ push) |
+| Sprint hiện tại | **Sprint 1 — Tài khoản, môn học & lớp học** (23/11 – 25/11; Sprint 0 đã xong) |
 | Cập nhật lần cuối | 23/11/2026 |
 
 ---
 
 ## 1. Tiến độ tổng quan
 
-**Tổng tiến độ phát triển: `░░░░░░░░░░` 0 / 195 SP (0%)** · Sprint 0: `▓▓▓▓▓▓▓▓▓░` 14 / 15 việc (93%)
+**Tổng tiến độ phát triển: `░░░░░░░░░░` 0 / 195 SP (0%)** · Sprint 0: `▓▓▓▓▓▓▓▓▓▓` 15 / 15 việc (100%)
 
 | Sprint | Thời gian | Mục tiêu | SP kế hoạch | SP xong | Trạng thái |
 |---|---|---|---:|---:|---|
-| S0 | 16/10 – 14/11 | Khởi động, chốt yêu cầu & môi trường | — | — | ✅ Xong, trừ T-0.13 🔄 |
+| S0 | 16/10 – 14/11 | Khởi động, chốt yêu cầu & môi trường | — | — | ✅ Xong (T-0.13 xong ngày 23/11) |
 | S1 | 23/11 – 25/11 | Tài khoản, môn học & lớp học | 43 | 0 | ⬜ Chưa bắt đầu |
 | S2 | 26/11 – 27/11 | Đăng ký, thanh toán & học tập | 34 | 0 | ⬜ Chưa bắt đầu |
 | S3 | 28/11 – 30/11 | Ngân hàng câu hỏi, đề thi, làm bài & chấm điểm | 44 | 0 | ⬜ Chưa bắt đầu |
@@ -221,7 +221,7 @@ Bốn vai trò của Claude Code là bốn agent trong `.claude/agents/` (`plann
 - [x] T-0.10 Tạo 4 agent Claude Code trong `.claude/agents/`: Planner, Coder, Tester, E2E
 - [x] T-0.11 Khởi tạo project Next.js 16 + TypeScript, shadcn/ui, Vitest, Playwright, cấu trúc thư mục, lint + format
 - [x] T-0.12 Docker Compose cho PostgreSQL, Prisma 7, `.env.example` (khoá Stripe test do PO điền vào `.env` trước Sprint 2)
-- [ ] T-0.13 🔄 CI trên GitHub Actions: lint, typecheck, format, unit test, build — 23/11: PO đã cấp token mới (lưu ở `docs/secrets/`, không commit), file đã chuyển vào `.github/workflows/ci.yml`; **còn chờ PO cho push** và xem lần chạy CI đầu tiên
+- [x] T-0.13 CI trên GitHub Actions: lint, typecheck, format, unit test, build — bật ngày 23/11 (`.github/workflows/ci.yml`); lần chạy đầu tiên ở commit `698b043` pass. Token push lưu ở `docs/secrets/`, không commit
 - [x] T-0.14 Wireframe các màn hình chính → `docs/ui/wireframes.md`
 - [x] T-0.15 Commit và push bản nền lên GitHub
 
@@ -375,4 +375,4 @@ docs/
 | 16/11/2026 | Thêm quy định viết báo cáo sprint vào `docs/CLAUDE.md` sau mỗi sprint; viết báo cáo Sprint 0. `docs/requirement.md` lên v1.2: sắp xếp lại thành tài liệu yêu cầu người dùng (URD) với 22 UR, 72 chức năng hệ thống, tiêu chí nghiệm thu AT-01 → AT-08, ma trận truy vết; thêm NFR-10 → NFR-12. Sprint 1 chưa bắt đầu, trễ 1 ngày so với lịch. |
 | 16/11/2026 | Thêm `docs/architecture.md` mô tả cấu trúc hệ thống (thành phần chạy, các tầng, cấu trúc thư mục, 10 phân hệ, luồng xử lý, quyết định kiến trúc). |
 | 23/11/2026 | Đổi tên `docs/CLAUDE.md` thành `docs/sprint-reports.md`: tránh trùng tên với `CLAUDE.md` ở gốc, và tránh để Claude Code tự nạp nhật ký sprint như một file chỉ dẫn. |
-| 23/11/2026 | Xử lý TD-07: PO dời hạn nộp từ 01/12 sang **06/12/2026**, giữ nguyên 195 SP. Xếp lại lịch: S1 23 – 25/11, S2 26 – 27/11, S3 28 – 30/11, S4 01 – 02/12, S5 03 – 04/12, S6 05 – 06/12. TD-01: PO cấp token GitHub mới, chuyển `ci.yml` vào `.github/workflows/` (chờ PO cho push). |
+| 23/11/2026 | Xử lý TD-07: PO dời hạn nộp từ 01/12 sang **06/12/2026**, giữ nguyên 195 SP. Xếp lại lịch: S1 23 – 25/11, S2 26 – 27/11, S3 28 – 30/11, S4 01 – 02/12, S5 03 – 04/12, S6 05 – 06/12. TD-01: PO cấp token GitHub mới, chuyển `ci.yml` vào `.github/workflows/`, push và CI chạy lần đầu pass — xong T-0.13. |

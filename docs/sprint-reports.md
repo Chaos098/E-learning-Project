@@ -16,7 +16,7 @@ File này ghi lại **kết quả thật** của từng sprint: việc đã xong
 
 | Mã | Việc tồn | Từ sprint | Cần xử lý trước | Trạng thái |
 |---|---|---|---|---|
-| TD-01 | Bật CI: chuyển `.github/workflows-pending/ci.yml` vào `.github/workflows/` sau khi PO cấp quyền `workflow` cho token GitHub | S0 | Càng sớm càng tốt | 🔄 23/11: đã có token (`docs/secrets/`, không commit), `ci.yml` đã chuyển vào `.github/workflows/`; chờ PO cho push và xem CI chạy |
+| TD-01 | Bật CI: chuyển `.github/workflows-pending/ci.yml` vào `.github/workflows/` sau khi PO cấp quyền `workflow` cho token GitHub | S0 | Càng sớm càng tốt | ✅ 23/11: `ci.yml` đã ở `.github/workflows/`, push bằng token mới (`docs/secrets/`, không commit); CI chạy lần đầu ở commit `698b043` pass |
 | TD-02 | PO điền khoá Stripe test vào `.env` (`STRIPE_SECRET_KEY`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET`) | S0 | Sprint 2 | ⬜ Chờ PO |
 | TD-03 | Ứng dụng chưa chạy trong Docker: hiện chỉ CSDL chạy bằng Docker Compose, ứng dụng chạy bằng `npm`. NFR-09 yêu cầu cả hệ thống chạy bằng Docker Compose | S0 | Sprint 6 | ⬜ |
 | TD-04 | ERD chưa có chỗ lưu 3 tham số lương (lương cơ bản, phụ cấp lớp, đơn giá học viên) | S0 | Sprint 4 (US-45) | ⬜ |

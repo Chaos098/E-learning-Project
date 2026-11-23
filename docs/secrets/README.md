@@ -4,11 +4,11 @@ Thư mục này chứa khoá bí mật dùng khi làm việc với dự án. **M
 
 | File | Nội dung | Dùng để |
 |---|---|---|
-| `github-token.txt` | Token GitHub (fine-grained, bắt đầu bằng `github_pat_`) của PO, chỉ một dòng | Push commit có sửa `.github/workflows/` (TD-01). Token cần quyền **Contents** và **Workflows** ở mức *Read and write* |
+| `github-token.txt` | Token GitHub classic (bắt đầu bằng `ghp_`) của PO, chỉ một dòng | Push lên GitHub, kể cả commit có sửa `.github/workflows/` (TD-01). Token chỉ cần 2 quyền: `repo` và `workflow` |
 
 ## Push bằng token này
 
-Không lưu token vào `git config` hay vào URL của `origin`. Khi cần push thay đổi trong `.github/workflows/`, chạy từ thư mục gốc của project:
+Không lưu token vào `git config` hay vào URL của `origin`. Thông tin đăng nhập cũ trong Keychain đã hết hiệu lực, nên mọi lần push đều chạy lệnh sau từ thư mục gốc của project:
 
 ```bash
 git -c credential.helper= -c credential.helper='!f() { echo username=x-access-token; echo "password=$(cat docs/secrets/github-token.txt)"; }; f' push origin main
@@ -19,5 +19,6 @@ Lệnh trên chỉ dùng token cho đúng một lần push, không ghi đè thô
 ## Lưu ý
 
 - CI trên GitHub Actions **không cần** token này: workflow tự có `GITHUB_TOKEN`. Token chỉ cần để *push* file workflow.
-- Token có hạn dùng. Hết hạn hoặc lộ ra ngoài thì thu hồi trên GitHub (Settings → Developer settings → Personal access tokens) và tạo token mới, rồi ghi đè `github-token.txt`.
+- Token hiện tại hết hạn ngày 23/12/2026. Hết hạn hoặc lộ ra ngoài thì thu hồi trên GitHub (Settings → Developer settings → Personal access tokens) và tạo token mới, rồi ghi đè `github-token.txt`.
+- Nếu dùng token fine-grained (`github_pat_`): phần *Repository access* phải là **Only select repositories** và chọn repo này. Để *Public repositories* thì token chỉ đọc được, push bị lỗi 403.
 - Máy mới clone project sẽ không có file token; PO tự tạo lại file.
